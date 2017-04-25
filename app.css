@@ -1,0 +1,235 @@
+/**** environment content // this is 100% variable ****/
+html {
+	background: white;
+	font: normal 100%/1.2 sans-serif;
+}
+body {
+	max-width: 600px;
+}
+
+/**** beta list content ****/
+/****
+purposefully do not style #bl-container
+so customer can do for special use-cases
+ex: for position: fixed; support
+****/
+#bl-content {
+	overflow: hidden;
+	background: #FAF7CD;
+	padding: 20px;
+	border-radius: 3px; /**** variable by customer ****/
+	box-shadow: 0 0 0 1px rgba(0,0,0,0.1) inset;
+	/**** no font styling, inherit from site ****/
+}
+#bl-intro-title {
+	font-size: 18px;
+	font-size: calc(1rem * 1.125); /**** if supported, fits better into site design ****/
+}
+#bl-intro-button {
+	/**** color styling? or inherit from site ****/
+}
+#bl-form {
+	display: none;
+}
+#bl-form.is-shown {
+	display: block;
+}
+#bl-form-wrapper {
+	max-width: 400px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	*zoom: 1;
+}
+#bl-form-wrapper:before,
+#bl-form-wrapper:after {
+	content: " ";
+	display: table;
+}
+#bl-form-microcopy,
+#bl-form-microcopy-error {
+	display: block;
+	margin-top: 10px;
+	color: #666;
+	font-size: 13px;
+}
+#bl-form-microcopy-error {
+	display: none;
+	color: red;
+	font-weight: bold;
+}
+#bl-form-microcopy-error.is-shown {
+	display: block;
+}
+#bl-label-title {
+	display: block;
+	margin-bottom: 10px;
+}
+#bl-label {
+	display: block;
+	position: relative;
+	float: left;
+	width: 70%;
+	box-sizing: border-box;
+}
+#bl-label:after {
+	display: block;
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	z-index: 2;
+	opacity: 0;
+	height: 20px;
+	width: 20px;
+	background: url(https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-checkmark-128.png) no-repeat center;
+	background-size: 16px;
+	margin-top: -9px;
+	content: "";
+	transition: opacity .25s ease-in-out;
+}
+#bl-label.is-good:after {
+	opacity: 1;
+}
+#bl-email {
+	display: block;
+	width: 100%;
+	outline: none;
+	padding: .65rem .75rem;
+	border: 1px solid #ccc; /**** variable by customer ****/
+	border-radius: 3px; /**** variable by customer ****/
+	box-shadow: 0 2px 0 #efefef inset;
+	box-sizing: border-box;
+	font-family: -apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;
+	font-size: 16px;
+	line-height: 1;
+	-webkit-appearance: none;
+}
+#bl-email:focus {
+	border-color: currentColor;
+	box-shadow: none;
+}
+#bl-email.is-error {
+	border-color: red;
+}
+#bl-submit,
+#bl-submitted-dismiss {
+	display: block;
+	position: relative;
+	float: left;
+	background: #111; /**** variable by customer ****/
+	outline: none;
+	min-width: 4rem;
+	margin-left: 1rem;
+	padding: .725rem 1rem;
+	border: 0;
+	border-radius: 3px; /**** variable by customer ****/
+	box-sizing: border-box;
+	color: white; /**** variable by customer ****/
+	cursor: pointer;
+	font-family: -apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 1;
+	text-align: center;
+}
+#bl-submit:active,
+#bl-submitted-dismiss:active {
+	background: #333; /**** variable by customer ****/
+	color: rgba(255,255,255,0.75); /**** variable by customer ****/
+}
+#bl-submit:focus,
+#bl-submitted-dismiss:focus {
+	box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
+}
+#bl-submit.is-submitted {
+	cursor: default;
+}
+#bl-submit.is-submitted:before {
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 2;
+	height: 14px;
+	width: 14px;
+	margin-top: -9px;
+	margin-left: -9px;
+	border-top: 2px solid white;
+	border-left: 2px solid white;
+	border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+	border-right: 2px solid rgba(255, 255, 255, 0.5);
+	border-radius: 100%;
+	content: "";
+	animation: rotate .75s infinite linear;
+}
+#bl-submit.is-submitted:after {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+	height: 100%;
+	width: 100%;
+	background: #111;
+	border-radius: 3px; /**** variable by customer ****/
+	content: "";
+}
+
+#bl-submitted-content {
+	display: none;
+	margin: -20px -20px 0;
+}
+#bl-submitted-content.is-shown {
+	display: block;
+}
+#bl-submitted-image {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+}
+#bl-submitted-title {
+	margin-top: 15px;
+	padding: 0 20px;
+	font-size: 18px;
+	font-size: calc(1rem * 1.125); /**** if supported, fits better into site design ****/
+}
+#bl-submitted-microcopy {
+	display: block;
+	margin-top: 10px;
+	padding: 0 20px;
+	color: #666;
+	font-size: 13px;
+}
+#bl-submitted-dismiss {
+	margin-top: 15px;
+	margin-left: 20px;
+}
+
+@media screen and (max-width: 500px) {
+	#bl-intro-button {
+		display: block;
+		margin-top: 15px;
+	}
+	#bl-label,
+	#bl-submit {
+		float: none;
+		width: 100%;
+	}
+	#bl-submit {
+		margin-top: 15px;
+		margin-left: 0;
+		padding: .85rem 0;
+	}
+	#bl-email {
+		padding: .85rem;
+	}
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

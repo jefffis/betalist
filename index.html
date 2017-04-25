@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>betalist</title>
+		<link rel="stylesheet" href="app.css" />
+	</head>
+	<body>
+
+		<div id="bl-container">
+			<div id="bl-content">
+				<div id="bl-intro-content">
+					<div id="bl-intro-title">
+						<strong>Want to help grow {productName}?</strong>
+						<a href="#bl-form" id="bl-intro-button">Join our beta-tester list!</a>
+					</div>
+					<form action="POST" id="bl-form">
+						<fieldset id="bl-form-wrapper">
+							<span id="bl-label-title">Enter your email</span>
+							<label id="bl-label" for="bl-email">
+								<input type="email" id="bl-email" name="bl-email" value="" />
+							</label>
+							<button id="bl-submit">Join</button>
+						</fieldset>
+						<small id="bl-form-microcopy-error"></small>
+						<small id="bl-form-microcopy">Help us make {productName} even better by participating in our beta tests. Unsubscribe anytime.</small>
+					</form>
+				</div>
+				<div id="bl-submitted-content"> 
+					<img src="congrats.gif" id="bl-submitted-image" /> <!-- variable by customer -->
+					<div id="bl-submitted-title">Awesome, you&rsquo;re are set to go!</div>
+					<small id="bl-submitted-microcopy">We just sent you an email confirming your signup for {productName}. Again, you can unsubscribe whenever you want to. <em>Thank you!!</em></small>
+					<button type="button" id="bl-submitted-dismiss">Dismiss</button>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	<script src="app.js" async></script>
+</html>
