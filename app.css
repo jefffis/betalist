@@ -317,11 +317,13 @@ ex: for position: fixed; support
 	top: 100%;
 	height: 100%;
 	vertical-align: middle;
+	transform: scale(0.75);
 	animation: fadeIn .3s ease-in-out;
 }
 .is-shown #bl-modal-wrapper {
 	display: table-cell;
 	top: 0;
+	transform: scale(1);
 	animation: fadeIn .5s ease-in-out;
 }
 #bl-modal-form {
@@ -362,10 +364,11 @@ ex: for position: fixed; support
 	position: absolute;
 	top: 0;
 	right: -3rem;
-	height: 1.5rem;
-	width: 1.5rem;
-	background: url(close.png) no-repeat center;
-	background-size: cover;
+	height: 25px;
+	width: 25px;
+	background: none;
+	/*background: url(close.png) no-repeat center;
+	background-size: cover;*/
 	border: 0;
 	cursor: pointer;
 }
@@ -373,11 +376,13 @@ ex: for position: fixed; support
 	opacity: .65;
 	outline: none;
 }
+#bl-modal-close-fill {
+	fill: white;
+}
 
 /**** adjust modal for mobiles ****/
 .is-mobile-device {
 	position: fixed;
-	overflow-x: hidden;
 }
 .is-mobile-device #bl-modal-wrapper-container.is-shown,
 .is-mobile-device .is-shown #bl-modal-wrapper {
@@ -408,7 +413,6 @@ ex: for position: fixed; support
 .is-mobile-device #bl-modal-close {
 	top: 1.5rem;
 	right: 1.5rem;
-	background-image: url(close-d.png);
 }
 .is-mobile-device #bl-submitted-content {
 	margin: 0;
@@ -437,6 +441,9 @@ ex: for position: fixed; support
 	background-position: center;
 	background-size: cover;
 }
+.is-mobile-device #bl-modal-close-fill {
+	fill: #777;
+}
 
 @keyframes fadeInColor {
 	0% {
@@ -454,10 +461,12 @@ ex: for position: fixed; support
 	0% {
 		display: none;
 		top: 100%;
+		transform: scale(0.75);
 	}
 	100% {
 		display: table-cell;
 		top: 0;
+		transform: scale(1);
 	}
 }
 @keyframes rotate {
