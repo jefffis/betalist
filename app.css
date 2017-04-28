@@ -55,10 +55,7 @@ purposefully do not style #bl-container
 so customer can do for special use-cases
 ex: for position: fixed; support
 ****/
-/*.modal-is-shown > * {
-	filter: blur(2px);
-}*/
-/**** adjust modal for mobiles ****/
+/**** prevent overflow when modal open ****/
 .modal-is-shown {
 	overflow: hidden;
 }
@@ -88,14 +85,7 @@ ex: for position: fixed; support
 #bl-intro-content.is-hidden {
 	display: none;
 }
-/*#bl-form {
-	display: none;
-}
-#bl-form.is-shown {
-	display: block;
-}*/
 #bl-form-wrapper {
-	/*max-width: 400px;*/
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -103,7 +93,7 @@ ex: for position: fixed; support
 }
 #bl-form-wrapper:before,
 #bl-form-wrapper:after {
-	content: " ";
+	content: "";
 	display: table;
 }
 #bl-form-microcopy,
@@ -141,7 +131,7 @@ ex: for position: fixed; support
 	opacity: 0;
 	height: 20px;
 	width: 20px;
-	background: url(https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-checkmark-128.png) no-repeat center;
+	background: url(checkmark.png) no-repeat center;
 	background-size: 16px;
 	margin-top: -9px;
 	content: "";
@@ -273,6 +263,15 @@ ex: for position: fixed; support
 	margin-left: 30px;
 }
 
+@media screen and (max-width: 600px) {
+	#bl-modal-wrapper {
+		padding: 0 1.5rem;
+	}
+	#bl-modal-close {
+		top: -3rem;
+		right: 0;
+	}
+}
 @media screen and (max-width: 500px) {
 	#bl-intro-button {
 		display: block;
@@ -340,7 +339,10 @@ ex: for position: fixed; support
 	border-radius: 3px; /**** variable by customer ****/
 	box-shadow: 0 0 0 1px rgba(0,0,0,0.1) inset, 0 1px 2px rgba(0,0,0,0.1), 0 2px 3px rgba(0,0,0,0.075);
 }
-/* logo placeholder */
+/****
+logo placeholder
+ideally, customer will upload their logo
+*****/
 #bl-logo {
 	height: 50px;
 	width: 50px;
@@ -379,16 +381,6 @@ ex: for position: fixed; support
 }
 #bl-modal-close-fill {
 	fill: white;
-}
-
-@media screen and (max-width: 600px) {
-	#bl-modal-wrapper {
-		padding: 0 1.5rem;
-	}
-	#bl-modal-close {
-		top: -3rem;
-		right: 0;
-	}
 }
 
 /**** adjust modal for mobiles ****/

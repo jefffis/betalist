@@ -77,7 +77,6 @@ function showSuccessMsg() {
 	}, 1750);
 }
 function showModal() {
-	// html.className = 'modal-is-shown'; // blur underlying content
 	blModalContainer.className = 'is-shown';
 	body.className += ' modal-is-shown'; // rudimentary, just to start
 	body.style.height = window.innerHeight + 'px';
@@ -86,7 +85,6 @@ function showModal() {
 	}
 }
 function closeAndResetModal() {
-	// html.className = ''; // remove blur underlying content
 	blModalContainer.className = '';
 	blIntroContent.className = '';
 	blSubittedContent.className = '';
@@ -117,16 +115,6 @@ blEmail.onfocus = function() {
 		this.className += ' ' + hasContentClass;
 	}
 }
-// blEmail.onkeyup = function() {
-// 	var isValidatable = this.className.indexOf(hasContentClass) !== -1 || this.value !== '' ? true : false;
-// 	if(!isValidatable) return;
-	
-// 	if(!validateEmail(this.value)) {
-// 		showEmailError(false);
-// 	} else {
-// 		showEmailSuccess();
-// 	}
-// }
 blEmail.onblur = function() {
 	var isValidatable = this.className.indexOf(hasContentClass) !== -1 || this.value !== '' ? true : false;
 	if(!isValidatable) return;
@@ -150,6 +138,5 @@ blForm.onsubmit = function(e) {
 	}
 }
 blSubmittedDismiss.onclick = function() {
-	// blContainer.parentNode.removeChild(blContainer);
 	closeAndResetModal();
 }
