@@ -31,9 +31,6 @@ if(narrowWindow) {
 	movedError.parentNode.removeChild(movedError);
 	blEmail.parentNode.appendChild(movedError);
 	blModal.appendChild(movedBtn);
-	blMobileModalSuccessImg.style.backgroundImage = 'url('+ blImgSrc +')';
-} else {
-	blModalSuccessImg.setAttribute('src', blImgSrc);
 }
 
 function validateEmail(email) { 
@@ -61,6 +58,7 @@ function showSuccessMsg() {
 	setTimeout(function() {
 		blIntroContent.className = 'is-fading';
 		removeUIAfterSubmit();
+		loadImages();
 	}, 1250);
 	setTimeout(function() {
 		blIntroContent.className = 'is-hidden';
@@ -75,6 +73,13 @@ function showSuccessMsg() {
 	setTimeout(function() {
 		blSubittedContent.className += ' is-fading';
 	}, 1750);
+}
+function loadImages() {
+	if(narrowWindow) {
+		blMobileModalSuccessImg.style.backgroundImage = 'url('+ blImgSrc +')';
+	} else {
+		blModalSuccessImg.setAttribute('src', blImgSrc);
+	}
 }
 function showModal() {
 	blModalContainer.className = 'is-shown';
