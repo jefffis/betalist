@@ -20,7 +20,8 @@ var html = document.getElementsByTagName('html')[0],
 	blSubittedContent = document.getElementById('bl-submitted-content'),
 	blSubmittedDismiss = document.getElementById('bl-submitted-dismiss'),
 	hasContentClass = 'has-content',
-	narrowWindow = window.innerWidth <= 500 ? true : false;
+	narrowWindow = window.innerWidth <= 500 ? true : false,
+	scrollPos;
 
 // on smaller screens, adjust some of the UI
 if(narrowWindow) {
@@ -59,6 +60,7 @@ function showEmailSuccess() {
 function showSuccessMsg() {
 	setTimeout(function() {
 		blIntroContent.className = 'is-fading';
+		removeUIAfterSubmit();
 	}, 1250);
 	setTimeout(function() {
 		blIntroContent.className = 'is-hidden';
@@ -93,13 +95,17 @@ function closeAndResetModal() {
 	body.style.height = '';
 	if(narrowWindow) {
 		blModalFormContainer.className = '';
+		window.scroll(0, scrollPos);
 	}
+}
+function removeUIAfterSubmit() {
+	var blTitle = blTitleLink.parentNode;
+	blTitle.parentNode.removeChild(blTitle);
 }
 
 blTitleLink.onclick = function(e) {
 	e.preventDefault();
-	// var blTitle = this.parentNode;
-	// blTitle.parentNode.removeChild(blTitle);
+	if(narrowWindow) scrollPos = window.scrollY;
 	showModal();
 	// TODO: app will need to have native URL on site to support users with JS disabled
 }

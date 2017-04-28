@@ -179,6 +179,7 @@ ex: for position: fixed; support
 	background: #111; /**** variable by customer ****/
 	outline: none;
 	min-width: 4rem;
+	width: calc(30% - 1rem);
 	margin-left: 1rem;
 	padding: .725rem 1rem;
 	border: 0;
@@ -380,6 +381,16 @@ ex: for position: fixed; support
 	fill: white;
 }
 
+@media screen and (max-width: 600px) {
+	#bl-modal-wrapper {
+		padding: 0 1.5rem;
+	}
+	#bl-modal-close {
+		top: -3rem;
+		right: 0;
+	}
+}
+
 /**** adjust modal for mobiles ****/
 .is-mobile-device {
 	position: fixed;
@@ -392,6 +403,7 @@ ex: for position: fixed; support
 	position: relative;
 	height: 100%;
 	background: white;
+	padding: 0;
 }
 .is-mobile-device #bl-modal-form {
 	position: absolute;
