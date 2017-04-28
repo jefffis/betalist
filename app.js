@@ -20,7 +20,7 @@ var html = document.getElementsByTagName('html')[0],
 	blSubittedContent = document.getElementById('bl-submitted-content'),
 	blSubmittedDismiss = document.getElementById('bl-submitted-dismiss'),
 	hasContentClass = 'has-content',
-	narrowWindow = window.innerWidth <= 600 ? true : false;
+	narrowWindow = window.innerWidth <= 500 ? true : false;
 
 // on smaller screens, adjust some of the UI
 if(narrowWindow) {
@@ -75,7 +75,7 @@ function showSuccessMsg() {
 	}, 1750);
 }
 function showModal() {
-	html.className = 'modal-is-shown'; // blur underlying content
+	// html.className = 'modal-is-shown'; // blur underlying content
 	blModalContainer.className = 'is-shown';
 	if(narrowWindow) {
 		body.className += ' is-mobile-device'; // rudimentary, just to start
@@ -83,7 +83,7 @@ function showModal() {
 	}
 }
 function closeAndResetModal() {
-	html.className = ''; // remove blur underlying content
+	// html.className = ''; // remove blur underlying content
 	blModalContainer.className = '';
 	blIntroContent.className = '';
 	blSubittedContent.className = '';
