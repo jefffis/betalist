@@ -91,7 +91,7 @@ ex: for position: fixed; support
 	display: block;
 }*/
 #bl-form-wrapper {
-	max-width: 400px;
+	/*max-width: 400px;*/
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -226,7 +226,7 @@ ex: for position: fixed; support
 	z-index: 1;
 	height: 100%;
 	width: 100%;
-	background: #111;
+	background-color: #666;
 	border-radius: 3px; /**** variable by customer ****/
 	content: "";
 }
@@ -335,6 +335,14 @@ ex: for position: fixed; support
 	border-radius: 3px; /**** variable by customer ****/
 	box-shadow: 0 0 0 1px rgba(0,0,0,0.1) inset;
 }
+/* logo placeholder */
+#bl-logo {
+	height: 50px;
+	width: 50px;
+	background: rgba(0,0,0,0.1);
+	margin: 1.5rem auto 1rem;
+	border-radius: 5px;
+}
 #bl-modal-title {
 	margin-bottom: 1.5rem;
 	padding-bottom: 1.5rem;
@@ -384,6 +392,7 @@ ex: for position: fixed; support
 	position: absolute;
 	bottom: 0;
 	left: 0;
+	max-width: 100%;
 	width: 100%;
 	padding: 0 30px 30px;
 	border-radius: 0;
@@ -391,16 +400,29 @@ ex: for position: fixed; support
 	box-sizing: border-box;
 	box-shadow: none;
 }
+.is-mobile-device #bl-modal-form.is-submitted {
+	height: 100%;
+	padding-left: 0;
+	padding-right: 0;
+}
 .is-mobile-device #bl-modal-close {
 	top: 1.5rem;
 	right: 1.5rem;
 	background-image: url(close-d.png);
 }
 .is-mobile-device #bl-submitted-content {
-	margin: 0 -30px;
+	margin: 0;
+}
+.is-mobile-device #bl-submitted-content-wrapper {
+	position: absolute;
+	bottom: 30px;
+	left: 0;
 }
 .is-mobile-device #bl-submitted-image {
 	border-radius: 0;
+}
+.is-mobile-device #bl-submitted-title {
+	margin-top: 0;
 }
 .is-mobile-device #bl-submitted-dismiss {
 	width: calc(100% - 60px);
@@ -409,6 +431,11 @@ ex: for position: fixed; support
 }
 .is-mobile-device #bl-modal-close.is-hidden {
 	display: none;
+}
+.is-mobile-device #bl-mobile-img {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
 }
 
 @keyframes fadeInColor {

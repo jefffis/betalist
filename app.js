@@ -6,6 +6,11 @@ var html = document.getElementsByTagName('html')[0],
 	blForm = document.getElementById('bl-form'),
 	blModalContainer = document.getElementById('bl-modal-wrapper-container'),
 	blModal = document.getElementById('bl-modal-wrapper'),
+	blModalFormContainer = document.getElementById('bl-modal-form'),
+	blModalSuccessImg = document.getElementById('bl-submitted-image'),
+	blImgSrc = blModalSuccessImg.getAttribute('data-src'),
+	blMobileModalSuccessImg = document.getElementById('bl-mobile-img'),
+	blMobileModalSuccessContent = document.getElementById('bl-submitted-content-wrapper'),
 	blModalCloseBtn = document.getElementById('bl-modal-close'),
 	blSubmit = document.getElementById('bl-submit'),
 	blEmail = document.getElementById('bl-email'),
@@ -25,6 +30,9 @@ if(narrowWindow) {
 	movedError.parentNode.removeChild(movedError);
 	blEmail.parentNode.appendChild(movedError);
 	blModal.appendChild(movedBtn);
+	blMobileModalSuccessImg.style.backgroundImage = 'url('+ blImgSrc +')';
+} else {
+	blModalSuccessImg.setAttribute('src', blImgSrc);
 }
 
 function validateEmail(email) { 
@@ -56,6 +64,11 @@ function showSuccessMsg() {
 		blIntroContent.className = 'is-hidden';
 		blSubittedContent.className = 'is-shown';
 		blModalCloseBtn.className = 'is-hidden';
+		if(narrowWindow) {
+			var successMsgHeight = blMobileModalSuccessContent.clientHeight;
+			blModalFormContainer.className = 'is-submitted';
+			blMobileModalSuccessImg.style.height = (window.innerHeight - successMsgHeight - 50) + 'px';
+		}
 	}, 1500);
 	setTimeout(function() {
 		blSubittedContent.className += ' is-fading';
@@ -78,6 +91,7 @@ function closeAndResetModal() {
 	if(narrowWindow) {
 		body.className = ''; // rudimentary, just to start
 		body.style.height = '';
+		blModalFormContainer.className = '';
 	}
 }
 
