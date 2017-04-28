@@ -1,10 +1,52 @@
 /**** environment content // this is 100% variable ****/
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
 html {
 	background: white;
 	font: normal 100%/1.2 sans-serif;
 }
-body {
-	max-width: 600px;
+header {
+	height: 60px;
+	margin-bottom: 1.5rem;
+	border-bottom: 1px solid #ccc;
+}
+main {
+	height: 1000px;
+	margin-bottom: 1.5rem;
+	padding: 0 1rem;
+	border-bottom: 1px solid #ccc;
+}
+
+@media screen and (min-width: 800px) {
+	body {
+		max-width: 1000px;
+		margin: auto;
+	}
+	main {
+		float: right;
+		width: 70%;
+		padding-right: 0;
+	}
+	aside {
+		float: left;
+		height: 100px;
+		width: calc(20% - 1rem);
+		margin-left: 1rem;
+		background: #efefef;
+	}
+}
+@media screen and (min-width: 1000px) {
+	main {
+		float: right;
+		width: 750px;
+	}
+	aside {
+		width: 200px;
+		margin-left: 0;
+	}
 }
 
 /**** beta list content ****/
@@ -13,7 +55,11 @@ purposefully do not style #bl-container
 so customer can do for special use-cases
 ex: for position: fixed; support
 ****/
-#bl-content {
+/*.modal-is-shown > * {
+	filter: blur(2px);
+}*/
+#bl-content,
+#bl-content-simple {
 	overflow: hidden;
 	background: #FAF7CD;
 	padding: 20px;
@@ -28,12 +74,22 @@ ex: for position: fixed; support
 #bl-intro-button {
 	/**** color styling? or inherit from site ****/
 }
-#bl-form {
+#bl-intro-content {
+	opacity: 1;
+	transition: opacity .25s ease-in-out;
+}
+#bl-intro-content.is-fading {
+	opacity: 0;
+}
+#bl-intro-content.is-hidden {
+	display: none;
+}
+/*#bl-form {
 	display: none;
 }
 #bl-form.is-shown {
 	display: block;
-}
+}*/
 #bl-form-wrapper {
 	max-width: 400px;
 	margin: 0;
@@ -177,32 +233,39 @@ ex: for position: fixed; support
 
 #bl-submitted-content {
 	display: none;
-	margin: -20px -20px 0;
+	opacity: 0;
+	margin: -30px -30px 65px;
+	transition: opacity .25s ease-in-out;
 }
 #bl-submitted-content.is-shown {
 	display: block;
+}
+#bl-submitted-content.is-fading {
+	opacity: 1;
 }
 #bl-submitted-image {
 	display: block;
 	width: 100%;
 	max-width: 100%;
+	border-radius: 3px 3px 0 0; /**** variable by customer ****/
 }
 #bl-submitted-title {
-	margin-top: 15px;
-	padding: 0 20px;
-	font-size: 18px;
-	font-size: calc(1rem * 1.125); /**** if supported, fits better into site design ****/
+	margin-top: 25px;
+	padding: 0 30px;
+	font-size: 24px;
+	font-weight: bold;
 }
 #bl-submitted-microcopy {
 	display: block;
-	margin-top: 10px;
-	padding: 0 20px;
-	color: #666;
-	font-size: 13px;
+	margin-top: .25rem;
+	padding: 0 30px;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 1.25;
 }
 #bl-submitted-dismiss {
-	margin-top: 15px;
-	margin-left: 20px;
+	margin-top: 25px;
+	margin-left: 30px;
 }
 
 @media screen and (max-width: 500px) {
@@ -225,6 +288,151 @@ ex: for position: fixed; support
 	}
 }
 
+/* simple version */
+#bl-content-simple {
+	font-size: 18px;
+	font-size: calc(1rem * 1.125); /**** if supported, fits better into site design ****/
+}
+
+/**** beta list modal ****/
+#bl-modal-wrapper-container {
+	display: none;
+	position: fixed;
+	top: 100%;
+	left: 0;
+	z-index: 100000000;
+	height: 100%;
+	width: 100%;
+	background: rgba(0, 0, 0, 0);
+}
+#bl-modal-wrapper-container.is-shown {
+	display: table;
+	top: 0;
+	background: rgba(0, 0, 0, 0.5);
+	animation: fadeInColor .3s ease-in-out;
+}
+#bl-modal-wrapper {
+	display: none;
+	position: relative;
+	top: 100%;
+	height: 100%;
+	vertical-align: middle;
+	animation: fadeIn .3s ease-in-out;
+}
+.is-shown #bl-modal-wrapper {
+	display: table-cell;
+	top: 0;
+	animation: fadeIn .5s ease-in-out;
+}
+#bl-modal-form {
+	position: relative;
+	/*overflow: hidden;*/
+	max-width: 400px;
+	/*background: #FAF7CD;*/
+	background: white;
+	margin: auto;
+	padding: 30px;
+	border-radius: 3px; /**** variable by customer ****/
+	box-shadow: 0 0 0 1px rgba(0,0,0,0.1) inset;
+}
+#bl-modal-title {
+	margin-bottom: 1.5rem;
+	padding-bottom: 1.5rem;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	font-size: 24px;
+	font-weight: bold;
+}
+#bl-modal-title-micro {
+	display: block;
+	margin-top: .25rem;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 1.25;
+}
+#bl-modal-close {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: -3rem;
+	height: 1.5rem;
+	width: 1.5rem;
+	background: url(close.png) no-repeat center;
+	background-size: cover;
+	border: 0;
+	cursor: pointer;
+}
+#bl-modal-close:active {
+	opacity: .65;
+	outline: none;
+}
+
+/**** adjust modal for mobiles ****/
+.is-mobile-device {
+	position: fixed;
+	overflow-x: hidden;
+}
+.is-mobile-device #bl-modal-wrapper-container.is-shown,
+.is-mobile-device .is-shown #bl-modal-wrapper {
+	display: block;
+}
+.is-mobile-device .is-shown #bl-modal-wrapper {
+	position: relative;
+	height: 100%;
+	background: white;
+}
+.is-mobile-device #bl-modal-form {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 0 30px 30px;
+	border-radius: 0;
+	border: 0;
+	box-sizing: border-box;
+	box-shadow: none;
+}
+.is-mobile-device #bl-modal-close {
+	top: 1.5rem;
+	right: 1.5rem;
+	background-image: url(close-d.png);
+}
+.is-mobile-device #bl-submitted-content {
+	margin: 0 -30px;
+}
+.is-mobile-device #bl-submitted-image {
+	border-radius: 0;
+}
+.is-mobile-device #bl-submitted-dismiss {
+	width: calc(100% - 60px);
+	padding-left: 0;
+	padding-right: 0;
+}
+.is-mobile-device #bl-modal-close.is-hidden {
+	display: none;
+}
+
+@keyframes fadeInColor {
+	0% {
+		display: none;
+		top: 100%;
+		background: rgba(0, 0, 0, 0);
+	}
+	100% {
+		display: table;
+		top: 0;
+		background: rgba(0, 0, 0, 0.5);
+	}
+}
+@keyframes fadeIn {
+	0% {
+		display: none;
+		top: 100%;
+	}
+	100% {
+		display: table-cell;
+		top: 0;
+	}
+}
 @keyframes rotate {
 	0% {
 		transform: rotate(0deg);

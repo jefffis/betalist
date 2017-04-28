@@ -9,11 +9,27 @@
 	</head>
 	<body>
 
-		<div id="bl-container">
+		<header></header>
+
+		<main>
+			<!-- as a banner then in modal -->
+			<div id="bl-container-simple">
+				<div id="bl-content-simple">
+					<strong>Want to help improve {productName}?</strong>
+					<a href="#bl-form" id="bl-intro-button">Join our beta-tester list!</a>
+				</div>
+			</div>
+			<!--\ as a banner then in modal -->
+		</main>
+
+		<aside></aside>
+
+		<!-- as a banner all in 1 -->
+		<!-- <div id="bl-container">
 			<div id="bl-content">
 				<div id="bl-intro-content">
 					<div id="bl-intro-title">
-						<strong>Want to help grow {productName}?</strong>
+						<strong>Want to help improve {productName}?</strong>
 						<a href="#bl-form" id="bl-intro-button">Join our beta-tester list!</a>
 					</div>
 					<form action="POST" id="bl-form">
@@ -29,10 +45,44 @@
 					</form>
 				</div>
 				<div id="bl-submitted-content"> 
-					<img src="congrats.gif" id="bl-submitted-image" /> <!-- variable by customer -->
+					<img src="congrats.gif" id="bl-submitted-image" />
 					<div id="bl-submitted-title">Awesome, you&rsquo;re are set to go!</div>
 					<small id="bl-submitted-microcopy">We just sent you an email confirming your signup for {productName}. Again, you can unsubscribe whenever you want to. <em>Thank you!!</em></small>
 					<button type="button" id="bl-submitted-dismiss">Dismiss</button>
+				</div>
+			</div>
+		</div> -->
+		<!--\ as a banner all in 1 -->
+
+		<div id="bl-modal-wrapper-container">
+			<div id="bl-modal-wrapper">
+				<div id="bl-modal-form">
+					<div id="bl-intro-content">
+						<div id="bl-modal-title">
+							Help us improve {productName}.
+							<small id="bl-modal-title-micro">
+								Take part in beta tests &amp; user tests to make {productName} better.
+							</small>
+						</div>
+						<form action="POST" id="bl-form" class="is-shown">
+							<fieldset id="bl-form-wrapper">
+								<span id="bl-label-title">Enter your email</span>
+								<label id="bl-label" for="bl-email">
+									<input type="email" id="bl-email" name="bl-email" value="" />
+								</label>
+								<button id="bl-submit">Join</button>
+							</fieldset>
+							<small id="bl-form-microcopy-error"></small>
+							<small id="bl-form-microcopy">After joining, you control what you help out with. Unsubscribe anytime you want.</small>
+						</form>
+					</div>
+					<div id="bl-submitted-content"> 
+						<img src="congrats.gif" id="bl-submitted-image" />
+						<div id="bl-submitted-title">Awesome, you&rsquo;re are set to go!</div>
+						<small id="bl-submitted-microcopy">We can&rsquo;t wait to make {productName} better with your help. <em>Thank you!!!!</em></small>
+						<button type="button" id="bl-submitted-dismiss">Dismiss</button>
+					</div>
+					<button type="button" id="bl-modal-close"></button>
 				</div>
 			</div>
 		</div>

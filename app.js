@@ -1,7 +1,12 @@
-var blContainer = document.getElementById('bl-container'),
+var html = document.getElementsByTagName('html')[0],
+	body = document.getElementsByTagName('body')[0],
+	blContainer = document.getElementById('bl-container'),
 	blIntroContent = document.getElementById('bl-intro-content'),
 	blTitleLink = document.getElementById('bl-intro-button'),
 	blForm = document.getElementById('bl-form'),
+	blModalContainer = document.getElementById('bl-modal-wrapper-container'),
+	blModal = document.getElementById('bl-modal-wrapper'),
+	blModalCloseBtn = document.getElementById('bl-modal-close'),
 	blSubmit = document.getElementById('bl-submit'),
 	blEmail = document.getElementById('bl-email'),
 	blLabel = document.getElementById('bl-label'),
@@ -10,14 +15,16 @@ var blContainer = document.getElementById('bl-container'),
 	blSubittedContent = document.getElementById('bl-submitted-content'),
 	blSubmittedDismiss = document.getElementById('bl-submitted-dismiss'),
 	hasContentClass = 'has-content',
-	narrowWindow = window.innerWidth <= 600 ? true : false,
-	movedError;
+	narrowWindow = window.innerWidth <= 600 ? true : false;
 
-// on smaller screens, move the error to below the input
+// on smaller screens, adjust some of the UI
 if(narrowWindow) {
-	movedError = blError;
+	var movedBtn = blModalCloseBtn.parentNode.removeChild(blModalCloseBtn),
+		movedError = blError;
+
 	movedError.parentNode.removeChild(movedError);
 	blEmail.parentNode.appendChild(movedError);
+	blModal.appendChild(movedBtn);
 }
 
 function validateEmail(email) { 
@@ -43,16 +50,45 @@ function showEmailSuccess() {
 }
 function showSuccessMsg() {
 	setTimeout(function() {
-		blIntroContent.parentNode.removeChild(blIntroContent);
+		blIntroContent.className = 'is-fading';
+	}, 1250);
+	setTimeout(function() {
+		blIntroContent.className = 'is-hidden';
 		blSubittedContent.className = 'is-shown';
+		blModalCloseBtn.className = 'is-hidden';
 	}, 1500);
+	setTimeout(function() {
+		blSubittedContent.className += ' is-fading';
+	}, 1750);
+}
+function showModal() {
+	html.className = 'modal-is-shown'; // blur underlying content
+	blModalContainer.className = 'is-shown';
+	if(narrowWindow) {
+		body.className += ' is-mobile-device'; // rudimentary, just to start
+		body.style.height = window.innerHeight + 'px';
+	}
+}
+function closeAndResetModal() {
+	html.className = ''; // remove blur underlying content
+	blModalContainer.className = '';
+	blIntroContent.className = '';
+	blSubittedContent.className = '';
+	blModalCloseBtn.className = '';
+	if(narrowWindow) {
+		body.className = ''; // rudimentary, just to start
+		body.style.height = '';
+	}
 }
 
 blTitleLink.onclick = function(e) {
 	e.preventDefault();
-	var blTitle = this.parentNode;
-	blTitle.parentNode.removeChild(blTitle);
-	blForm.className = 'is-shown';
+	// var blTitle = this.parentNode;
+	// blTitle.parentNode.removeChild(blTitle);
+	showModal();
+}
+blModalCloseBtn.onclick = function() {
+	closeAndResetModal();
 }
 blEmail.onfocus = function() {
 	if(this.value !== '') {
@@ -86,10 +122,12 @@ blForm.onsubmit = function(e) {
 	} else {
 		showEmailSuccess();
 		showSuccessMsg();
+		blEmail.blur();
 		blSubmit.className = 'is-submitted';
 		blSubmit.blur();
 	}
 }
 blSubmittedDismiss.onclick = function() {
-	blContainer.parentNode.removeChild(blContainer);
+	// blContainer.parentNode.removeChild(blContainer);
+	closeAndResetModal();
 }
