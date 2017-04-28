@@ -58,6 +58,10 @@ ex: for position: fixed; support
 /*.modal-is-shown > * {
 	filter: blur(2px);
 }*/
+/**** adjust modal for mobiles ****/
+.modal-is-shown {
+	overflow: hidden;
+}
 #bl-content,
 #bl-content-simple {
 	overflow: hidden;

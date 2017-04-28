@@ -77,9 +77,10 @@ function showSuccessMsg() {
 function showModal() {
 	// html.className = 'modal-is-shown'; // blur underlying content
 	blModalContainer.className = 'is-shown';
+	body.className += ' modal-is-shown'; // rudimentary, just to start
+	body.style.height = window.innerHeight + 'px';
 	if(narrowWindow) {
 		body.className += ' is-mobile-device'; // rudimentary, just to start
-		body.style.height = window.innerHeight + 'px';
 	}
 }
 function closeAndResetModal() {
@@ -88,9 +89,9 @@ function closeAndResetModal() {
 	blIntroContent.className = '';
 	blSubittedContent.className = '';
 	blModalCloseBtn.className = '';
+	body.className = ''; // rudimentary, just to start
+	body.style.height = '';
 	if(narrowWindow) {
-		body.className = ''; // rudimentary, just to start
-		body.style.height = '';
 		blModalFormContainer.className = '';
 	}
 }
@@ -100,6 +101,7 @@ blTitleLink.onclick = function(e) {
 	// var blTitle = this.parentNode;
 	// blTitle.parentNode.removeChild(blTitle);
 	showModal();
+	// TODO: app will need to have native URL on site to support users with JS disabled
 }
 blModalCloseBtn.onclick = function() {
 	closeAndResetModal();
