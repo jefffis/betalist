@@ -301,7 +301,7 @@ ex: for position: fixed; support
 /**** beta list modal ****/
 #bl-modal-wrapper-container {
 	display: none;
-	position: absolute;
+	position: fixed;
 	top: 100%;
 	left: 0;
 	z-index: 100000000;
