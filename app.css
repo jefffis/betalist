@@ -474,11 +474,14 @@ ideally, customer will upload their logo
 	left: 0;
 	max-width: 100%;
 	width: 100%;
-	padding: 0 30px 30px;
+	padding: 0 30px;
 	border-radius: 0;
 	border: 0;
 	box-sizing: border-box;
 	box-shadow: none;
+}
+.is-mobile-device #bl-form-microcopy {
+	padding-bottom: 30px;
 }
 .is-mobile-device #bl-modal-form.is-submitted {
 	height: 100%;
@@ -494,8 +497,9 @@ ideally, customer will upload their logo
 }
 .is-mobile-device #bl-submitted-content-wrapper {
 	position: absolute;
-	bottom: 30px;
+	bottom: 0;
 	left: 0;
+	padding-bottom: 30px;
 }
 .is-mobile-device #bl-submitted-image {
 	border-radius: 0;

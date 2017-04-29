@@ -81,9 +81,8 @@ function showSuccessMsg() {
 		blSubittedContent.className = 'is-shown';
 		blModalCloseBtn.className = 'is-hidden';
 		if(narrowWindow) {
-			var successMsgHeight = blMobileModalSuccessContent.clientHeight;
 			blModalFormContainer.className = 'is-submitted';
-			blMobileModalSuccessImg.style.height = (window.innerHeight - successMsgHeight - 50) + 'px';
+			blMobileModalSuccessImg.style.height = (window.innerHeight - blMobileModalSuccessContent.clientHeight - 30) + 'px';
 		}
 	}, 1500);
 	setTimeout(function() {
