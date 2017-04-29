@@ -87,6 +87,9 @@ function showModal() {
 	body.style.height = window.innerHeight + 'px';
 	if(narrowWindow) {
 		body.className += ' is-mobile-device'; // rudimentary, just to start
+		setTimeout(function() {
+			body.className += ' is-fixed'; // rudimentary, just to start
+		}, 500);
 	}
 }
 function closeAndResetModal() {

@@ -309,6 +309,10 @@ ex: for position: fixed; support
 	width: 100%;
 	background: rgba(0, 0, 0, 0);
 }
+/**** blur underliying content ****/
+.modal-is-shown #bl-modal-wrapper-container ~ * {
+	filter: blur(1px);
+}
 #bl-modal-wrapper-container.is-shown {
 	display: table;
 	top: 0;
@@ -386,6 +390,14 @@ ideally, customer will upload their logo
 /**** adjust modal for mobiles ****/
 .is-mobile-device {
 	position: fixed;
+}
+.is-fixed > * {
+	display: none;
+}
+.is-fixed,
+.is-fixed #bl-modal-wrapper-container {
+	display: block;
+	position: relative;
 }
 .is-mobile-device #bl-modal-wrapper-container.is-shown,
 .is-mobile-device .is-shown #bl-modal-wrapper {
