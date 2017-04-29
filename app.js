@@ -98,6 +98,7 @@ function loadImages() {
 	}
 }
 function showModal() {
+	if(narrowWindow) scrollPos = window.scrollY;
 	blModalContainer.className = 'is-shown';
 	body.className += ' modal-is-shown'; // rudimentary, just to start
 	body.style.height = window.innerHeight + 'px';
@@ -147,7 +148,6 @@ function hideLearnMore() {
 // show modal
 blTitleLink.onclick = function(e) {
 	e.preventDefault();
-	if(narrowWindow) scrollPos = window.scrollY;
 	showModal();
 	// TODO: app will need to have native URL on site to support users with JS disabled
 }
@@ -201,3 +201,6 @@ blForm.onsubmit = function(e) {
 blSubmittedDismiss.onclick = function() {
 	closeAndResetModal();
 }
+
+// support firing this on other actions as well
+if(window.location.hash === '#showModal') showModal();
