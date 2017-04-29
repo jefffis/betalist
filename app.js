@@ -153,11 +153,13 @@ blTitleLink.onclick = function(e) {
 }
 
 // show learn more
-blLearnMoreLink.onclick = function() {
+blLearnMoreLink.onclick = function(e) {
+	e.preventDefault();
 	showLearnMore();
 }
 // hide learn more
-blLearnMoreBackButton.onclick = function() {
+blLearnMoreBackButton.onclick = function(e) {
+	e.preventDefault();
 	hideLearnMore();
 }
 
