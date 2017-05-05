@@ -190,7 +190,7 @@ ex: for position: fixed; support
 	opacity: 0;
 	height: 20px;
 	width: 20px;
-	background: url(checkmark.png) no-repeat center;
+	background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAEUUlEQVR4Ae3dA5AsVxiG4ax1Hdu2bdu2rVJuIbZt27Zt27ad9f55Y9zVzHT/fbrP91Y9ZY7nqzk9YymllFJKKaWUUkoppZRSSimllFIq7apQgwhT6+BLtOIo1CGS1Jxohf3Lg5gAquCNxDuwXnyChaAKWhVuhvWjAztBFbB9YIN0HhpRkNTy6IaV4GlMjpynpsDXsDJ8hWWQ01QDnoJVoAujkcPUmbCEXI2hyElqK1jCXsH0UIE3F1phKfgeayDQ1Ci8A0tRD3ZBYKlq3AJz8BUCS+0Lc/IFAkqtgG6Yk90QYhp7HFyBQFKNeArm5FUMQSCps2BOfsSMCCS1NczRuggxjT0OjkEgqVF4F+bkAdQigFQ1boU5+RQTIpDUfjAnnVgEgaRWRA/MyZ6INI09lyOQVCOehjl5JayxR50Nc/IDZoAKpG1gjtaBCqS50QZzchQiTWPP/fGOPRp7PsEEUIG0P8xJBxaGCqSVnMee3aECaUp8A3NyKVQgNeIZmJOX0YJI09gzPVQgbQtztDZUIM3jPPYcCRVIY+M9mJN7UQMVQNW4DebkY4yPSNPYsxBUIK2MHh3j0tjj4WJE1dgYX2PP716KbezZDZ3owQmoRkidA3PyPaZDNO0E+59zUR3p2LMmommzfj5UXYLayMaewxFNa6NrEJc4q0cWjY33YU7uiWnsWRHtsEG4CY3wrBq3w5x8hPEQRYvhF1gJ7kQzvDrAeexZEFE0H36o4KTr0AKOPbsgimZLYEh5HCOQVlM5jz0XIYqmx+ewBDyLcZB0TXgW5uQFNKPwTY4PU/hZ1IRIsnNhTr7DtCh8E+ItWArewKRIou1gTnqwRizb/suwFL2HqXI29hyKwjcUTzl+h54+J2PP3bGMPVfCHH2O2coYe+6AOfkQ4yKKWmHOvsY8GGwHwpy0Y35E04OwDHyHhTBQqziPPTshqibF67AM/IQlBxh7voU5uRBRNj5ehGXgF6wQwNjzPJoRbWPjKVgG2nv5vn2e89vRNIi+4XgYloFObIDf2t557FkN6s9acA8sA9041HnsOQTqfzXhVljB3Ylq9JKqx3WwgvoA40D1Uy0uhRVMO+bDIFLVOAdWIDtAlVAVToYVwPlQZXYULMeeQxMCSEeuvX2LqaESaDQsR3qwClSC7YYeWA4cBJVC26IbFrA7NPak28boggXofYwNlXJrowMWkDbMC6fUymiFBWJ7OKeWxk+wjJ0LlVEL43tYRp7V2JN98+LrjMaeqRBAajZ84Tz2rIyAUjPgY5iDAxBgamqHizXfprEn7CbDmykeOh0bgacmwEspjD3zICepcRI+7LEtcpYagccSuPPPRk5TQ/EArExPoxE5TjWXeeb/G0wJVYAacGOJY89KUAWqDlfABmF/qAJWgwtg/bhVY0+xq8LpsF68i1FQBa8Kx/fyF6xzIqLUXvgWr2MBKKWUUkoppZRSSimllFJKKaWUUkpF268pyLsck5DrAQAAAABJRU5ErkJggg==") no-repeat center;
 	background-size: 16px;
 	margin-top: -9px;
 	content: "";
@@ -208,7 +208,7 @@ ex: for position: fixed; support
 	border-radius: 3px; /**** variable by customer ****/
 	box-shadow: 0 2px 0 #efefef inset;
 	box-sizing: border-box;
-	font-family: -apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;
+	font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 16px;
 	line-height: 1;
 	-webkit-appearance: none;
@@ -236,7 +236,7 @@ ex: for position: fixed; support
 	box-sizing: border-box;
 	color: white; /**** variable by customer ****/
 	cursor: pointer;
-	font-family: -apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;
+	font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 18px;
 	font-weight: bold;
 	line-height: 1;
@@ -369,7 +369,7 @@ ex: for position: fixed; support
 	background: rgba(0, 0, 0, 0);
 }
 /**** blur underliying content ****/
-.modal-is-shown #bl-modal-wrapper-container ~ * {
+.modal-is-shown #bl-outer-wrapper ~ * {
 	filter: blur(1px);
 }
 #bl-modal-wrapper-container.is-shown {

@@ -1,53 +1,155 @@
 var html = document.getElementsByTagName('html')[0],
 	body = document.getElementsByTagName('body')[0],
-	// modal intro stuff
-	blContainer = document.getElementById('bl-container'),
-	blIntroContent = document.getElementById('bl-intro-content'),
+
+	// container
+	blModalContainer = document.createElement('div'),
+	blModalWrapper = document.createElement('div'),
+	blModalFormContainer = document.createElement('div'),
+
+	// intro
+	blIntroContent = document.createElement('div'),
+	blModalTitle = document.createElement('div'),
+	blModalTitleLogo = document.createElement('div'),
+	blModalTitleContent = document.createElement('div'),
+	blModalTitleSmall = document.createElement('small'),
+	blLearnMoreLink = document.createElement('a'),
+	
+	// form
+	blForm = document.createElement('form'),
+	blFormWrapper = document.createElement('fieldset'),
+	blLabelTitle = document.createElement('label'),
+	blLabel = document.createElement('label'),
+	blEmail = document.createElement('input'),
+	blSubmit = document.createElement('button'),
+	blError = document.createElement('small'),
+	blMicrocopy = document.createElement('small'),
+
+	// learn more
+	blLearnMoreContent = document.createElement('div'),
+	blLearnMoreBackButton = document.createElement('a'),
+	blLearnMoreVideo = document.createElement('div'),
+	blLearnMoreVideoIframe = document.createElement('iframe'),
+	
+	// success
+	blSubittedContent = document.createElement('div'),
+	blSubittedContentWrapper = document.createElement('div'),
+	blModalSuccessImg = document.createElement('img'),
+	blMobileModalSuccessImg = document.createElement('div'),
+	blSubmittedTitle = document.createElement('div'),
+	blSubmittedSmall = document.createElement('small'),
+	blSubmittedDismiss = document.createElement('button'),
+
+	// close
+	blModalCloseBtn = document.createElement('button'),
+
+	// show the modal
 	blTitleLink = document.getElementById('bl-intro-button'),
-	// form stuff
-	blForm = document.getElementById('bl-form'),
-	blModalContainer = document.getElementById('bl-modal-wrapper-container'),
-	blModal = document.getElementById('bl-modal-wrapper'),
-	blModalFormContainer = document.getElementById('bl-modal-form'),
-	blSubmit = document.getElementById('bl-submit'),
-	blEmail = document.getElementById('bl-email'),
-	blLabel = document.getElementById('bl-label'),
-	blError = document.getElementById('bl-form-microcopy-error'),
-	blEmailErrorMsg = 'Please enter a valid email.',
-	// success stuff
-	blModalSuccessImg = document.getElementById('bl-submitted-image'),
-	blImgSrc = blModalSuccessImg.getAttribute('data-src'),
-	blMobileModalSuccessImg = document.getElementById('bl-mobile-img'),
-	blMobileModalSuccessContent = document.getElementById('bl-submitted-content-wrapper'),
-	blSubittedContent = document.getElementById('bl-submitted-content'),
-	// learn more stuff
-	blLearnMoreContent = document.getElementById('bl-learn-more'),
-	blLearnMoreLink = document.getElementById('bl-learn-more-link'),
-	blLearnMoreBackButton = document.getElementById('bl-back-link'),
-	blLearnMoreVideo = document.getElementById('bl-video-holder'),
-	// close modal stuff
-	blModalCloseBtn = document.getElementById('bl-modal-close'),
-	blSubmittedDismiss = document.getElementById('bl-submitted-dismiss'),
-	// misc
+
+	blStyleTag = document.createElement('style'),
+	blStyles = '.modal-is-shown{overflow:hidden}#bl-content,#bl-content-simple{overflow:hidden;background:#FAF7CD;padding:20px;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,0.1) inset}#bl-intro-title{font-size:18px;font-size:calc(1rem * 1.125)}#bl-intro-content{opacity:1;transition:opacity .25s ease-in-out}#bl-intro-content.is-fading{opacity:0}#bl-intro-content.is-hidden{display:none}#bl-learn-more{display:none;position:relative;z-index:2;opacity:0;margin:-30px;transition:opacity .25s ease-in-out}#bl-learn-more.is-shown{display:block}#bl-learn-more.is-fading{opacity:1}#bl-back-link{display:block;margin:20px;font-size:16px;line-height:1.2}#bl-back-link:active{opacity:.65}#bl-video-holder{height:350px;width:100%;overflow:hidden;border-radius:0 0 3px 3px}#bl-video-holder iframe{display:block;height:100%;width:100%}#bl-form-wrapper{margin:0;padding:0;border:0;*zoom:1}#bl-form-wrapper:before,#bl-form-wrapper:after{content:"";display:table}#bl-form-microcopy,#bl-form-microcopy-error{display:block;margin-top:10px;color:#666;font-size:13px}#bl-form-microcopy-error{display:none;color:red;font-weight:bold}#bl-form-microcopy-error.is-shown{display:block}#bl-label-title{display:block;margin-bottom:10px}#bl-label{display:block;position:relative;float:left;width:70%;box-sizing:border-box}#bl-label:after{display:block;position:absolute;top:50%;right:10px;z-index:2;opacity:0;height:20px;width:20px;background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAEUUlEQVR4Ae3dA5AsVxiG4ax1Hdu2bdu2rVJuIbZt27Zt27ad9f55Y9zVzHT/fbrP91Y9ZY7nqzk9YymllFJKKaWUUkoppZRSSimllFIq7apQgwhT6+BLtOIo1CGS1Jxohf3Lg5gAquCNxDuwXnyChaAKWhVuhvWjAztBFbB9YIN0HhpRkNTy6IaV4GlMjpynpsDXsDJ8hWWQ01QDnoJVoAujkcPUmbCEXI2hyElqK1jCXsH0UIE3F1phKfgeayDQ1Ci8A0tRD3ZBYKlq3AJz8BUCS+0Lc/IFAkqtgG6Yk90QYhp7HFyBQFKNeArm5FUMQSCps2BOfsSMCCS1NczRuggxjT0OjkEgqVF4F+bkAdQigFQ1boU5+RQTIpDUfjAnnVgEgaRWRA/MyZ6INI09lyOQVCOehjl5JayxR50Nc/IDZoAKpG1gjtaBCqS50QZzchQiTWPP/fGOPRp7PsEEUIG0P8xJBxaGCqSVnMee3aECaUp8A3NyKVQgNeIZmJOX0YJI09gzPVQgbQtztDZUIM3jPPYcCRVIY+M9mJN7UQMVQNW4DebkY4yPSNPYsxBUIK2MHh3j0tjj4WJE1dgYX2PP716KbezZDZ3owQmoRkidA3PyPaZDNO0E+59zUR3p2LMmommzfj5UXYLayMaewxFNa6NrEJc4q0cWjY33YU7uiWnsWRHtsEG4CY3wrBq3w5x8hPEQRYvhF1gJ7kQzvDrAeexZEFE0H36o4KTr0AKOPbsgimZLYEh5HCOQVlM5jz0XIYqmx+ewBDyLcZB0TXgW5uQFNKPwTY4PU/hZ1IRIsnNhTr7DtCh8E+ItWArewKRIou1gTnqwRizb/suwFL2HqXI29hyKwjcUTzl+h54+J2PP3bGMPVfCHH2O2coYe+6AOfkQ4yKKWmHOvsY8GGwHwpy0Y35E04OwDHyHhTBQqziPPTshqibF67AM/IQlBxh7voU5uRBRNj5ehGXgF6wQwNjzPJoRbWPjKVgG2nv5vn2e89vRNIi+4XgYloFObIDf2t557FkN6s9acA8sA9041HnsOQTqfzXhVljB3Ylq9JKqx3WwgvoA40D1Uy0uhRVMO+bDIFLVOAdWIDtAlVAVToYVwPlQZXYULMeeQxMCSEeuvX2LqaESaDQsR3qwClSC7YYeWA4cBJVC26IbFrA7NPak28boggXofYwNlXJrowMWkDbMC6fUymiFBWJ7OKeWxk+wjJ0LlVEL43tYRp7V2JN98+LrjMaeqRBAajZ84Tz2rIyAUjPgY5iDAxBgamqHizXfprEn7CbDmykeOh0bgacmwEspjD3zICepcRI+7LEtcpYagccSuPPPRk5TQ/EArExPoxE5TjWXeeb/G0wJVYAacGOJY89KUAWqDlfABmF/qAJWgwtg/bhVY0+xq8LpsF68i1FQBa8Kx/fyF6xzIqLUXvgWr2MBKKWUUkoppZRSSimllFJKKaWUUkpF268pyLsck5DrAQAAAABJRU5ErkJggg==") no-repeat center;background-size:16px;margin-top:-9px;content:"";transition:opacity .25s ease-in-out}#bl-label.is-good:after{opacity:1}#bl-email{display:block;width:100%;outline:none;padding:.65rem .75rem;border:1px solid #ccc;border-radius:3px;box-shadow:0 2px 0 #efefef inset;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:16px;line-height:1;-webkit-appearance:none}#bl-email:focus{border-color:currentColor;box-shadow:none}#bl-email.is-error{border-color:red}#bl-submit,#bl-submitted-dismiss{display:block;position:relative;float:left;background:#111;outline:none;min-width:4rem;width:calc(30% - 1rem);margin-left:1rem;padding:.725rem 1rem;border:0;border-radius:3px;box-sizing:border-box;color:white;cursor:pointer;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:18px;font-weight:bold;line-height:1;text-align:center}#bl-submit:active,#bl-submitted-dismiss:active{background:#333;color:rgba(255,255,255,0.75)}#bl-submit:focus,#bl-submitted-dismiss:focus{box-shadow:0 0 0 2px rgba(0,0,0,0.05)}#bl-submit.is-submitted{cursor:default}#bl-submit.is-submitted:before{display:block;position:absolute;top:50%;left:50%;z-index:2;height:14px;width:14px;margin-top:-9px;margin-left:-9px;border-top:2px solid white;border-left:2px solid white;border-bottom:2px solid rgba(255, 255, 255, 0.5);border-right:2px solid rgba(255, 255, 255, 0.5);border-radius:100%;content:"";animation:rotate .75s infinite linear}#bl-submit.is-submitted:after{display:block;position:absolute;left:0;top:0;z-index:1;height:100%;width:100%;background-color:#666;border-radius:3px;content:""}#bl-submitted-content{display:none;opacity:0;margin:-30px -30px 65px;transition:opacity .25s ease-in-out}#bl-submitted-content.is-shown{display:block}#bl-submitted-content.is-fading{opacity:1}#bl-submitted-image{display:block;width:100%;max-width:100%;border-radius:3px 3px 0 0}#bl-submitted-title{margin-top:25px;padding:0 30px;font-size:24px;font-weight:bold}#bl-submitted-microcopy{display:block;margin-top:.25rem;padding:0 30px;font-size:16px;font-weight:normal;line-height:1.25}#bl-submitted-dismiss{margin-top:25px;margin-left:30px}@media screen and (max-width: 600px){#bl-modal-wrapper{padding:0 1.5rem}#bl-modal-close{top:-3rem;right:0}}@media screen and (max-width: 500px){#bl-intro-button{display:block;margin-top:15px}#bl-label,#bl-submit{float:none;width:100%}#bl-submit{margin-top:15px;margin-left:0;padding:.85rem 0}#bl-email{padding:.85rem}}#bl-content-simple{font-size:18px;font-size:calc(1rem * 1.125)}#bl-modal-wrapper-container{display:none;position:fixed;top:100%;left:0;z-index:100000000;height:100%;width:100%;background:rgba(0, 0, 0, 0)}.modal-is-shown #bl-outer-wrapper ~ *{filter:blur(1px)}#bl-modal-wrapper-container.is-shown{display:table;top:0;background:rgba(0, 0, 0, 0.5);animation:fadeInColor .3s ease-in-out}#bl-modal-wrapper{display:none;position:relative;top:100%;height:100%;vertical-align:middle;transform:scale(0.75);animation:fadeIn .3s ease-in-out}.is-shown #bl-modal-wrapper{display:table-cell;top:0;transform:scale(1);animation:fadeIn .5s ease-in-out}#bl-modal-form{position:relative;max-width:400px;background:white;margin:auto;padding:30px;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,0.1) inset, 0 1px 2px rgba(0,0,0,0.1), 0 2px 3px rgba(0,0,0,0.075)}#bl-logo{height:50px;width:50px;background:rgba(0,0,0,0.1);margin:1.5rem auto 1rem;border-radius:5px}#bl-modal-title{margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(0,0,0,0.1);font-size:24px;font-weight:bold}#bl-modal-title-micro{display:block;margin-top:.25rem;font-size:16px;font-weight:normal;line-height:1.25}#bl-modal-close{display:block;position:absolute;top:0;right:-3rem;height:25px;width:25px;background:none;border:0;cursor:pointer}#bl-modal-close:active{opacity:.65;outline:none}#bl-modal-close-fill{fill:white}.is-mobile-device{position:fixed}.is-fixed > *{display:none}.is-fixed,.is-fixed #bl-modal-wrapper-container{display:block;position:relative}.is-mobile-device #bl-modal-wrapper-container.is-shown,.is-mobile-device .is-shown #bl-modal-wrapper{display:block}.is-mobile-device .is-shown #bl-modal-wrapper{position:relative;height:100%;background:white;padding:0}.is-mobile-device #bl-modal-form{position:absolute;bottom:0;left:0;max-width:100%;width:100%;padding:0 30px;border-radius:0;border:0;box-sizing:border-box;box-shadow:none}.is-mobile-device #bl-form-microcopy{padding-bottom:30px}.is-mobile-device #bl-modal-form.is-submitted{height:100%;padding-left:0;padding-right:0}.is-mobile-device #bl-modal-close{top:1.5rem;right:1.5rem}.is-mobile-device #bl-submitted-content{margin:0}.is-mobile-device #bl-submitted-content-wrapper{position:absolute;bottom:0;left:0;padding-bottom:30px}.is-mobile-device #bl-submitted-image{border-radius:0}.is-mobile-device #bl-submitted-title{margin-top:0}.is-mobile-device #bl-submitted-dismiss{width:calc(100% - 60px);padding-left:0;padding-right:0}.is-mobile-device #bl-modal-close.is-hidden{display:none}.is-mobile-device #bl-mobile-img{background-repeat:no-repeat;background-position:center;background-size:cover}.is-mobile-device #bl-modal-close-fill{fill:#777}@keyframes "fadeInColor"{0%{display:none;top:100%;background:rgba(0, 0, 0, 0);}100%{display:table;top:0;background:rgba(0, 0, 0, 0.5);}}@keyframes "fadeIn"{0%{display:none;top:100%;transform:scale(0.75);}100%{display:table-cell;top:0;transform:scale(1);}}@keyframes "fadeOutColor"{0%{display:table;top:0;background:rgba(0, 0, 0, 0.5);}100%{display:none;top:100%;background:rgba(0, 0, 0, 0);}}@keyframes "fadeOut"{0%{display:table-cell;top:0;transform:scale(1);}100%{display:none;top:100%;transform:scale(0.75);}}@keyframes "rotate"{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}';
+
+// adjust contnent
+blModalContainer.id = 'bl-modal-wrapper-container';
+blModalWrapper.id = 'bl-modal-wrapper';
+blModalFormContainer.id = 'bl-modal-form';
+blIntroContent.id = 'bl-intro-content';
+
+blModalTitleLogo.id = 'bl-logo';
+blModalTitle.id = 'bl-modal-title';
+blModalTitleContent.id = 'bl-modal-title-content';
+blModalTitleContent.innerText = 'Help us improve {productName}.';
+blModalTitleSmall.id = 'bl-modal-title-micro';
+blModalTitleSmall.innerHTML = 'Take part in beta tests &amp; user tests to make {productName} better. ';
+blLearnMoreLink.id = 'bl-learn-more-link';
+blLearnMoreLink.innerText = 'What does this mean?';
+blLearnMoreLink.href = '###';
+// add to parent els
+blModalTitleSmall.appendChild(blLearnMoreLink);
+blModalTitle.appendChild(blModalTitleLogo);
+blModalTitle.appendChild(blModalTitleContent);
+blModalTitle.appendChild(blModalTitleSmall);
+blIntroContent.appendChild(blModalTitle);
+
+blForm.id = 'bl-form';
+blFormWrapper.id = 'bl-form-wrapper';
+blLabelTitle.id = 'bl-label-title';
+blLabelTitle.for = 'bl-email'
+blLabelTitle.innerText = 'Enter your email';
+blLabel.id = 'bl-label';
+blEmail.id = 'bl-email';
+blEmail.type = 'email';
+blEmail.name = 'bl-email';
+blSubmit.id = 'bl-submit';
+blSubmit.innerText = 'Join';
+blError.id = 'bl-form-microcopy-error';
+blMicrocopy.id = 'bl-form-microcopy';
+blMicrocopy.innerHTML = 'After joining, you&rsquo;re in control with what you help out with. Unsubscribe anytime you want.';
+// add to parent els
+blFormWrapper.appendChild(blLabelTitle);
+blLabel.appendChild(blEmail);
+blFormWrapper.appendChild(blLabel);
+blFormWrapper.appendChild(blSubmit);
+blForm.appendChild(blFormWrapper);
+blForm.appendChild(blError);
+blForm.appendChild(blMicrocopy);
+
+blLearnMoreContent.id = 'bl-learn-more';
+blLearnMoreBackButton.id = 'bl-back-link';
+blLearnMoreBackButton.innerText = 'Go back';
+blLearnMoreBackButton.href = '###';
+blLearnMoreVideo.id = 'bl-video-holder';
+blLearnMoreVideoIframe.src = 'https://www.youtube.com/embed/eNsKlhGJ3p0?showinfo=0&wmode=transparent&rel=0';
+blLearnMoreVideoIframe.frameBorder = '0';
+// add to parent els
+blLearnMoreContent.appendChild(blLearnMoreBackButton);
+blLearnMoreContent.appendChild(blLearnMoreVideo);
+blLearnMoreVideo.appendChild(blLearnMoreVideoIframe);
+
+blSubittedContent.id = 'bl-submitted-content';
+blSubittedContentWrapper.id = 'bl-submitted-content-wrapper';
+blModalSuccessImg.id = 'bl-submitted-image';
+blModalSuccessImg.setAttribute('data-src', 'congrats.gif');
+blMobileModalSuccessImg.id = 'bl-mobile-img';
+blSubmittedTitle.id = 'bl-submitted-title';
+blSubmittedTitle.innerHTML = 'Awesome, you&rsquo;re all set!';
+blSubmittedSmall.id = 'bl-submitted-microcopy';
+blSubmittedSmall.innerHTML = 'We can&rsquo;t wait to make {productName} better with your help. Thank you!';
+blSubmittedDismiss.id = 'bl-submitted-dismiss';
+blSubmittedDismiss.type = 'button';
+blSubmittedDismiss.innerText = 'Dismiss';
+// add to parent els
+blSubittedContentWrapper.appendChild(blSubmittedTitle);
+blSubittedContentWrapper.appendChild(blSubmittedSmall);
+blSubittedContentWrapper.appendChild(blSubmittedDismiss);
+blSubittedContent.appendChild(blModalSuccessImg);
+blSubittedContent.appendChild(blMobileModalSuccessImg);
+blSubittedContent.appendChild(blSubittedContentWrapper);
+
+blModalCloseBtn.id = 'bl-modal-close';
+blModalCloseBtn.type = 'button';
+blModalCloseBtn.innerHTML = '<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><polygon id="bl-modal-close-fill" fill="#777777" points="24 22.0631579 22.0631579 24 11.9915789 13.9284211 1.92 24 0 22.0631579 10.0715789 11.9915789 0 1.92 1.92 0 11.9915789 10.0715789 22.0631579 0 24 1.92 13.9284211 11.9915789"></polygon></g></svg>';
+
+// add to parent els & then add to body
+blIntroContent.appendChild(blForm);
+blModalFormContainer.appendChild(blIntroContent);
+blModalFormContainer.appendChild(blLearnMoreContent);
+blModalFormContainer.appendChild(blSubittedContent);
+blModalFormContainer.appendChild(blModalCloseBtn);
+blModalWrapper.appendChild(blModalFormContainer);
+blModalContainer.appendChild(blModalWrapper);
+
+// create & insert style
+blStyleTag.innerHTML = blStyles;
+document.getElementsByTagName('head')[0].appendChild(blStyleTag);
+
+// setup DOM
+body.insertAdjacentHTML('afterbegin', '<div id="bl-outer-wrapper"></div>');
+document.getElementById('bl-outer-wrapper').appendChild(blModalContainer);
+
+var blEmailErrorMsg = 'Please enter a valid email.',
 	hasContentClass = 'has-content',
 	narrowWindow = window.innerWidth <= 500 ? true : false,
-	scrollPos,
-	modalContent = '<div id="bl-modal-wrapper-container"><div id="bl-modal-wrapper"><div id="bl-modal-form"><div id="bl-intro-content"><div id="bl-modal-title"><div id="bl-logo"></div>Help us improve{productName}.<small id="bl-modal-title-micro">Take part in beta tests &amp; user tests to make{productName}better.</small></div><form action="POST" id="bl-form" class="is-shown"><fieldset id="bl-form-wrapper"><label for="bl-email" id="bl-label-title">Enter your email</label><label id="bl-label" for="bl-email"><input type="email" id="bl-email" name="bl-email" value=""/></label><button id="bl-submit">Join</button></fieldset><small id="bl-form-microcopy-error"></small><small id="bl-form-microcopy">After joining, you&rsquo;re in control with what you help out with. Unsubscribe anytime you want.</small></form></div><div id="bl-submitted-content"> <img data-src="congrats.gif" id="bl-submitted-image"/><div id="bl-mobile-img"></div><div id="bl-submitted-content-wrapper"><div id="bl-submitted-title">Awesome, you&rsquo;re all set!</div><small id="bl-submitted-microcopy">We can&rsquo;t wait to make{productName}better with your help. Thank you!</small><button type="button" id="bl-submitted-dismiss">Dismiss</button></div></div><button type="button" id="bl-modal-close"><svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <polygon id="bl-modal-close-fill" fill="#777777" points="24 22.0631579 22.0631579 24 11.9915789 13.9284211 1.92 24 0 22.0631579 10.0715789 11.9915789 0 1.92 1.92 0 11.9915789 10.0715789 22.0631579 0 24 1.92 13.9284211 11.9915789"></polygon> </g></svg></button></div></div></div>';
-
-// TODO make all content insertable via JS
-// body.insertBefore(modalContent, body.firstChild);
-
-// on smaller screens, adjust some of the UI
-if(narrowWindow) {
-	var movedBtn = blModalCloseBtn.parentNode.removeChild(blModalCloseBtn),
-		movedError = blError,
-		movedBackLink = blLearnMoreBackButton.parentNode.removeChild(blLearnMoreBackButton);
-
-	movedError.parentNode.removeChild(movedError);
-	blEmail.parentNode.appendChild(movedError);
-	blModal.appendChild(movedBtn);
-	blLearnMoreContent.appendChild(movedBackLink);
-}
+	scrollPos;
 
 function validateEmail(email) { 
 	var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -82,7 +184,7 @@ function showSuccessMsg() {
 		blModalCloseBtn.className = 'is-hidden';
 		if(narrowWindow) {
 			blModalFormContainer.className = 'is-submitted';
-			blMobileModalSuccessImg.style.height = (window.innerHeight - blMobileModalSuccessContent.clientHeight - 30) + 'px';
+			blMobileModalSuccessImg.style.height = (window.innerHeight - blSubittedContentWrapper.clientHeight - 30) + 'px';
 		}
 	}, 1500);
 	setTimeout(function() {
@@ -90,6 +192,7 @@ function showSuccessMsg() {
 	}, 1750);
 }
 function loadImages() {
+	var blImgSrc = blModalSuccessImg.getAttribute('data-src');
 	if(narrowWindow) {
 		blMobileModalSuccessImg.style.backgroundImage = 'url('+ blImgSrc +')';
 	} else {
