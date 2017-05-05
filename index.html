@@ -6,6 +6,58 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>betalist</title>
 		<link rel="stylesheet" href="app.css" />
+		<style>
+		/**** environment content // this is 100% variable ****/
+		* {
+			margin: 0;
+			padding: 0;
+			border: 0;
+		}
+		html {
+			background: white;
+			font: normal 100%/1.2 sans-serif;
+		}
+		header {
+			height: 60px;
+			margin-bottom: 1.5rem;
+			border-bottom: 1px solid #ccc;
+		}
+		main {
+			height: 1000px;
+			margin-bottom: 1.5rem;
+			padding: 0 1rem;
+			border-bottom: 1px solid #ccc;
+		}
+
+		@media screen and (min-width: 800px) {
+			body {
+				max-width: 1000px;
+				margin: auto;
+			}
+			main {
+				float: right;
+				width: 70%;
+				padding-right: 0;
+			}
+			aside {
+				float: left;
+				height: 100px;
+				width: calc(20% - 1rem);
+				margin-left: 1rem;
+				background: #efefef;
+			}
+		}
+		@media screen and (min-width: 1000px) {
+			main {
+				float: right;
+				width: 750px;
+			}
+			aside {
+				width: 200px;
+				margin-left: 0;
+			}
+		}
+		</style>
 	</head>
 	<body>
 
