@@ -264,11 +264,11 @@ function hideLearnMore() {
 }
 
 // show modal
-blTitleLink.onclick = function(e) {
-	e.preventDefault();
-	showModal();
-	// TODO: app will need to have native URL on site to support users with JS disabled
-}
+// blTitleLink.onclick = function(e) {
+// 	e.preventDefault();
+// 	showModal();
+// 	// TODO: app will need to have native URL on site to support users with JS disabled
+// }
 
 // show learn more
 blLearnMoreLink.onclick = function(e) {
