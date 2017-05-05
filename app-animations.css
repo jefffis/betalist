@@ -1,0 +1,56 @@
+@keyframes fadeInColor {
+	0% {
+		display: none;
+		top: 100%;
+		background: rgba(0, 0, 0, 0);
+	}
+	100% {
+		display: table;
+		top: 0;
+		background: rgba(0, 0, 0, 0.5);
+	}
+}
+@keyframes fadeIn {
+	0% {
+		display: none;
+		top: 100%;
+		transform: scale(0.75);
+	}
+	100% {
+		display: table-cell;
+		top: 0;
+		transform: scale(1);
+	}
+}
+@keyframes fadeOutColor {
+	0% {
+		display: table;
+		top: 0;
+		background: rgba(0, 0, 0, 0.5);
+	}
+	100% {
+		display: none;
+		top: 100%;
+		background: rgba(0, 0, 0, 0);
+	}
+}
+@keyframes fadeOut {
+	0% {
+		display: table-cell;
+		top: 0;
+		transform: scale(1);
+	}
+	100% {
+		display: none;
+		top: 100%;
+		transform: scale(0.75);
+	}
+}
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
