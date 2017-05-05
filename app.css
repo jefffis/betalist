@@ -50,6 +50,10 @@ ex: for position: fixed; support
 #bl-learn-more.is-fading {
 	opacity: 1;
 }
+#bl-learn-more-link,
+#bl-back-link {
+	text-decoration: underline;
+}
 #bl-back-link {
 	display: block;
 	padding: 20px;
@@ -156,7 +160,7 @@ ex: for position: fixed; support
 	width: 100%;
 	outline: none;
 	margin: 0;
-	padding: .65rem .75rem;
+	padding: 10px 12px;
 	border: 1px solid #ccc; /**** variable by customer ****/
 	border-radius: 3px; /**** variable by customer ****/
 	box-shadow: 0 2px 0 #efefef inset;
@@ -185,7 +189,7 @@ ex: for position: fixed; support
 	min-width: 4rem;
 	width: calc(30% - 1rem);
 	margin-left: 1rem;
-	padding: .725rem 1rem;
+	padding: 11px 16px;
 	border: 0;
 	border-radius: 3px; /**** variable by customer ****/
 	box-shadow: none;
@@ -207,10 +211,29 @@ ex: for position: fixed; support
 #bl-submitted-dismiss:focus {
 	box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
 }
+#bl-submit:after {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+	opacity: 0;
+	height: 100%;
+	width: 100%;
+	background-color: #666;
+	padding-top: 13px;
+	border-radius: 3px; /**** variable by customer ****/
+	box-sizing: border-box;
+	color: rgba(255,255,255,0.5);
+	content: "Joining...";
+	font-size: 13px;
+	font-weight: normal;
+	transition: opacity .25s ease-in-out;
+}
 #bl-submit.is-submitted {
 	cursor: default;
 }
-#bl-submit.is-submitted:before {
+/*#bl-submit.is-submitted:before {
 	display: block;
 	position: absolute;
 	top: 50%;
@@ -227,18 +250,9 @@ ex: for position: fixed; support
 	border-radius: 100%;
 	content: "";
 	animation: rotate .75s infinite linear;
-}
+}*/
 #bl-submit.is-submitted:after {
-	display: block;
-	position: absolute;
-	left: 0;
-	top: 0;
-	z-index: 1;
-	height: 100%;
-	width: 100%;
-	background-color: #666;
-	border-radius: 3px; /**** variable by customer ****/
-	content: "";
+	opacity: 1;
 }
 
 #bl-submitted-content {
@@ -283,7 +297,7 @@ ex: for position: fixed; support
 		padding: 0 1.5rem;
 	}
 	#bl-modal-close {
-		top: -3rem;
+		top: -48px;
 		right: 0;
 	}
 }
@@ -387,7 +401,7 @@ ideally, customer will upload their logo
 	display: block;
 	position: absolute;
 	top: 0;
-	right: -3rem;
+	right: -48px;
 	min-height: 0;
 	height: 25px;
 	min-width: 0;
@@ -488,61 +502,4 @@ ideally, customer will upload their logo
 }
 .is-mobile-device #bl-modal-close-fill {
 	fill: #777;
-}
-
-@keyframes fadeInColor {
-	0% {
-		display: none;
-		top: 100%;
-		background: rgba(0, 0, 0, 0);
-	}
-	100% {
-		display: table;
-		top: 0;
-		background: rgba(0, 0, 0, 0.5);
-	}
-}
-@keyframes fadeIn {
-	0% {
-		display: none;
-		top: 100%;
-		transform: scale(0.75);
-	}
-	100% {
-		display: table-cell;
-		top: 0;
-		transform: scale(1);
-	}
-}
-@keyframes fadeOutColor {
-	0% {
-		display: table;
-		top: 0;
-		background: rgba(0, 0, 0, 0.5);
-	}
-	100% {
-		display: none;
-		top: 100%;
-		background: rgba(0, 0, 0, 0);
-	}
-}
-@keyframes fadeOut {
-	0% {
-		display: table-cell;
-		top: 0;
-		transform: scale(1);
-	}
-	100% {
-		display: none;
-		top: 100%;
-		transform: scale(0.75);
-	}
-}
-@keyframes rotate {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
 }
