@@ -252,7 +252,7 @@ ex: for position: fixed; support
 	margin-top: -10px;
 	margin-left: -1px;
 	border-radius: 2px;
-	animation: rotate 1s infinite;
+	animation: blRotate 1s infinite;
 }
 #bl-submit.is-submitted:after {
 	top: 50%;
@@ -264,7 +264,7 @@ ex: for position: fixed; support
 	margin-top: -1px;
 	margin-left: -10px;
 	border-radius: 2px;
-	animation: rotate 1s infinite;
+	animation: blRotate 1s infinite;
 	animation-delay: .25s;
 }
 
@@ -359,7 +359,7 @@ ex: for position: fixed; support
 	display: table;
 	top: 0;
 	background: rgba(0, 0, 0, 0.5);
-	animation: fadeInColor .3s ease-in-out;
+	animation: blFadeInColor .3s ease-in-out;
 }
 #bl-modal-wrapper {
 	display: none;
@@ -368,13 +368,13 @@ ex: for position: fixed; support
 	height: 100%;
 	vertical-align: middle;
 	transform: scale(0.75);
-	animation: fadeIn .3s ease-in-out;
+	animation: blFadeIn .3s ease-in-out;
 }
 .is-shown #bl-modal-wrapper {
 	display: table-cell;
 	top: 0;
 	transform: scale(1);
-	animation: fadeIn .5s ease-in-out;
+	animation: blFadeIn .5s ease-in-out;
 }
 #bl-modal-form {
 	position: relative;
