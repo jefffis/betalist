@@ -211,49 +211,43 @@ ex: for position: fixed; support
 #bl-submitted-dismiss:focus {
 	box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
 }
+#bl-submit.is-submitted {
+	background: #666;
+	color: rgba(255,255,255,0.65);
+	cursor: default;
+	font-weight: normal;
+}
+/*#bl-submit:before,
 #bl-submit:after {
+	content: "";
+}
+#bl-submit:before {
+	opacity: 0;
+	transform: scale(2.5);
+	transition: opacity .5s ease-in-out, transform .5s ease-in-out;
+}
+#bl-submit.is-submitted:before,
+#bl-submit.is-submitted:after {
 	display: block;
 	position: absolute;
-	left: 0;
 	top: 0;
-	z-index: 1;
-	opacity: 0;
+	left: 0;
+	z-index: 2;
 	height: 100%;
 	width: 100%;
-	background-color: #666;
-	padding-top: 13px;
-	border-radius: 3px; /**** variable by customer ****/
+	border-radius: 3px;
 	box-sizing: border-box;
-	color: rgba(255,255,255,0.5);
-	content: "Joining...";
-	font-size: 13px;
-	font-weight: normal;
-	transition: opacity .25s ease-in-out;
 }
-#bl-submit.is-submitted {
-	cursor: default;
-}
-/*#bl-submit.is-submitted:before {
-	display: block;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	z-index: 2;
-	height: 14px;
-	width: 14px;
-	margin-top: -9px;
-	margin-left: -9px;
-	border-top: 2px solid white;
-	border-left: 2px solid white;
-	border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-	border-right: 2px solid rgba(255, 255, 255, 0.5);
-	border-radius: 100%;
-	content: "";
-	animation: rotate .75s infinite linear;
-}*/
-#bl-submit.is-submitted:after {
+#bl-submit.is-submitted:before {
 	opacity: 1;
+	background: url(load.gif) no-repeat center;
+	background-size: 24px;
+	transform: scale(1);
 }
+#bl-submit.is-submitted:after {
+	z-index: 1;
+	background-color: #666;	
+}*/
 
 #bl-submitted-content {
 	display: none;
