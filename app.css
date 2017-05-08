@@ -466,7 +466,7 @@ ideally, customer will upload their logo
 	border-radius: 0;
 	border: 0;
 	/*box-sizing: border-box;*/
-	/*box-shadow: none;*/
+	box-shadow: none;
 }
 .is-mobile-device #bl-form-microcopy {
 	padding-bottom: 30px;
