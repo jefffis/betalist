@@ -1,4 +1,11 @@
 /**** beta list content ****/
+#bl-modal-wrapper-container * {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+	box-shadow: none;
+}
 /****
 purposefully do not style #bl-container
 so customer can do for special use-cases
@@ -96,7 +103,7 @@ ex: for position: fixed; support
 	display: block;
 	height: 100%;
 	width: 100%;
-	background: red;
+	background: #111;
 }
 
 #bl-form-wrapper {
@@ -116,6 +123,7 @@ ex: for position: fixed; support
 	margin-top: 10px;
 	color: #666;
 	font-size: 13px;
+	line-height: 1.3;
 }
 #bl-form-microcopy-error {
 	display: none;
@@ -135,7 +143,7 @@ ex: for position: fixed; support
 	position: relative;
 	float: left;
 	width: 70%;
-	box-sizing: border-box;
+	/*box-sizing: border-box;*/
 }
 #bl-label:after {
 	display: block;
@@ -157,6 +165,7 @@ ex: for position: fixed; support
 }
 #bl-email {
 	display: block;
+	height: auto;
 	width: 100%;
 	outline: none;
 	margin: 0;
@@ -164,7 +173,7 @@ ex: for position: fixed; support
 	border: 1px solid #ccc; /**** variable by customer ****/
 	border-radius: 3px; /**** variable by customer ****/
 	box-shadow: 0 2px 0 #efefef inset;
-	box-sizing: border-box;
+	/*box-sizing: border-box;*/
 	font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 16px;
 	line-height: 1;
@@ -172,7 +181,7 @@ ex: for position: fixed; support
 }
 #bl-email:focus {
 	border-color: currentColor;
-	box-shadow: none;
+	/*box-shadow: none;*/
 }
 #bl-email.is-error {
 	border-color: red;
@@ -189,15 +198,15 @@ ex: for position: fixed; support
 	min-width: 4rem;
 	width: calc(30% - 1rem);
 	margin-left: 1rem;
-	padding: 11px 16px;
+	padding: 12px 16px;
 	border: 0;
 	border-radius: 3px; /**** variable by customer ****/
-	box-shadow: none;
-	box-sizing: border-box;
+	/*box-shadow: none;*/
+	/*box-sizing: border-box;*/
 	color: white; /**** variable by customer ****/
 	cursor: pointer;
 	font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: bold;
 	line-height: 1;
 	text-align: center;
@@ -213,41 +222,51 @@ ex: for position: fixed; support
 }
 #bl-submit.is-submitted {
 	background: #666;
-	color: rgba(255,255,255,0.65);
+	/*color: rgba(255,255,255,0.65);*/
+	color: #666;
 	cursor: default;
-	font-weight: normal;
+	/*font-weight: normal;*/
 }
-/*#bl-submit:before,
+#bl-submit:before,
 #bl-submit:after {
-	content: "";
-}
-#bl-submit:before {
 	opacity: 0;
-	transform: scale(2.5);
-	transition: opacity .5s ease-in-out, transform .5s ease-in-out;
+	/*transform: scale(2.5);*/
+	transition: opacity .5s ease-in-out;
+	content: "";
 }
 #bl-submit.is-submitted:before,
 #bl-submit.is-submitted:after {
 	display: block;
 	position: absolute;
-	top: 0;
-	left: 0;
 	z-index: 2;
-	height: 100%;
-	width: 100%;
-	border-radius: 3px;
-	box-sizing: border-box;
+	opacity: 1;
+/*	transform: scale(1);*/
+	/*box-sizing: border-box;*/
 }
 #bl-submit.is-submitted:before {
-	opacity: 1;
-	background: url(load.gif) no-repeat center;
-	background-size: 24px;
-	transform: scale(1);
+	top: 50%;
+	left: 50%;
+	height: 20px;
+	width: 2px;
+	background: white;
+	margin-top: -10px;
+	margin-left: -1px;
+	border-radius: 2px;
+	animation: rotate 1s infinite;
 }
 #bl-submit.is-submitted:after {
-	z-index: 1;
-	background-color: #666;	
-}*/
+	top: 50%;
+	left: 50%;
+	opacity: .5;
+	height: 2px;
+	width: 20px;
+	background: white;
+	margin-top: -1px;
+	margin-left: -10px;
+	border-radius: 2px;
+	animation: rotate 1s infinite;
+	animation-delay: .25s;
+}
 
 #bl-submitted-content {
 	display: none;
@@ -383,13 +402,14 @@ ideally, customer will upload their logo
 	border-bottom: 1px solid rgba(0,0,0,0.1);
 	font-size: 24px;
 	font-weight: bold;
+	line-height: 1.3;
 }
 #bl-modal-title-micro {
 	display: block;
 	margin-top: 12px;
 	font-size: 16px;
 	font-weight: normal;
-	line-height: 1.25;
+	line-height: 1.3;
 }
 #bl-modal-close {
 	display: block;
@@ -403,7 +423,7 @@ ideally, customer will upload their logo
 	background: none;
 	padding: 0;
 	border: 0;
-	box-shadow: none;
+	/*box-shadow: none;*/
 	cursor: pointer;
 }
 #bl-modal-close:active {
@@ -445,8 +465,8 @@ ideally, customer will upload their logo
 	padding: 0 30px;
 	border-radius: 0;
 	border: 0;
-	box-sizing: border-box;
-	box-shadow: none;
+	/*box-sizing: border-box;*/
+	/*box-shadow: none;*/
 }
 .is-mobile-device #bl-form-microcopy {
 	padding-bottom: 30px;
