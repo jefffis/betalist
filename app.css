@@ -472,6 +472,10 @@ ideally, customer will upload their logo
 .is-mobile-device #bl-form-microcopy {
 	padding-bottom: 30px;
 }
+.is-mobile-device #bl-submit,
+.is-mobile-device #bl-submitted-dismiss {
+	font-size: 20px;
+}
 .is-mobile-device #bl-modal-form.is-submitted {
 	height: 100%;
 	padding-left: 0;
