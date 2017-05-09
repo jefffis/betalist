@@ -436,9 +436,6 @@ ideally, customer will upload their logo
 }
 
 /**** adjust modal for mobiles ****/
-.is-mobile-device {
-	position: fixed;
-}
 .is-fixed > * {
 	display: none;
 }
@@ -446,6 +443,9 @@ ideally, customer will upload their logo
 .is-fixed #bl-outer-wrapper {
 	display: block;
 	position: relative;
+}
+.is-fixed-mobile-device {
+	position: fixed;
 }
 .is-mobile-device #bl-modal-wrapper-container.is-shown,
 .is-mobile-device .is-shown #bl-modal-wrapper {
