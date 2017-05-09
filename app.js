@@ -212,6 +212,7 @@ function loadImages() {
 		blModalSuccessImg.setAttribute('src', blImgSrc);
 	}
 }
+// TODO: fix mobile scroll to top of viewport b/c of fixed positioning, fix: just add in via another setTimeout & adjust CSS
 function showModal() {
 	if(narrowWindow) scrollPos = window.scrollY;
 	blModalContainer.className = 'is-shown';
