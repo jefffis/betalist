@@ -5,6 +5,7 @@
 	border: 0;
 	box-sizing: border-box;
 	box-shadow: none;
+	text-align: left;
 }
 /****
 purposefully do not style #bl-container
