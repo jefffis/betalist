@@ -52,7 +52,7 @@ var blBody = document.getElementsByTagName('body')[0],
 	blEmailErrorMsg = 'Please enter a valid email.',
 	hasContentClass = 'has-content',
 	narrowWindow = window.innerWidth <= 500 ? true : false,
-	scrollPos;
+	scrollPos = 0;
 
 // adjust contnent
 blModalContainer.id = 'bl-modal-wrapper-container';
