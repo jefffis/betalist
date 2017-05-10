@@ -64,7 +64,8 @@ ex: for position: fixed; support
 }
 #bl-back-link {
 	display: block;
-	padding: 20px;
+	border-bottom: 1px solid #ddd;
+	padding: 20px 30px;
 	font-size: 16px;
 	line-height: 1.2;
 	/*position: relative;*/
@@ -94,17 +95,45 @@ ex: for position: fixed; support
 #bl-back-link:active {
 	opacity: .65;
 }
-#bl-video-holder {
-	height: 350px;
-	width: 100%;
+#bl-learn-more-holder {
+	/*height: 350px;
+	width: 100%;*/
 	overflow: hidden;
+	padding: 0 30px;
 	border-radius: 0 0 3px 3px;
 }
-#bl-video-holder iframe {
+/*#bl-video-holder iframe {
 	display: block;
 	height: 100%;
 	width: 100%;
 	background: #111;
+}*/
+#bl-learn-more-title {
+	margin-top: 30px;
+	margin-bottom: 12px;
+	font-size: 24px;
+	font-weight: bold;
+}
+#bl-learn-more-holder .bl-learn-more-content {
+	margin-bottom: 18px;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 1.25;
+}
+#bl-learn-more-holder .bl-learn-more-content:last-child {
+	margin-bottom: 30px;
+}
+/*#bl-learn-more-holder .bl-learn-more-hr {
+	height: 1px;
+	background: #ddd;
+	margin: 18px 0;
+}*/
+.is-mobile-device #bl-learn-more-holder {
+	padding: 0 30px;
+}
+.is-mobile-device #bl-back-link {
+	border-top: 1px solid #ddd;
+	border-bottom: 0;
 }
 
 #bl-form-wrapper {
@@ -394,7 +423,7 @@ ideally, customer will upload their logo
 	height: 50px;
 	width: 50px;
 	background: rgba(0,0,0,0.1);
-	margin: 1.5rem auto 1rem;
+	margin: 24px auto 15px;
 	border-radius: 5px;
 }
 #bl-modal-title {
@@ -521,4 +550,9 @@ ideally, customer will upload their logo
 }
 .is-mobile-device #bl-modal-close-fill {
 	fill: #777;
+}
+@media screen and (max-height: 540px) {
+	.is-mobile-device #bl-logo {
+		display: none;
+	}
 }
