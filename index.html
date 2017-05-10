@@ -18,8 +18,24 @@
 			background: white;
 			font: normal 100%/1.2 sans-serif;
 		}
-		#bl-content-simple {
+		.bl-content {
+			background: #FAF7CD;
+			padding: 20px;
+			border-radius: 3px;
 			font-size: 18px;
+		}
+		#bl-content-inline {
+			box-shadow: 0 0 0 1px rgba(0,0,0,0.1) inset;
+		}
+		#bl-content-fixed {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+		}
+		#bl-content-fixed-wrapper {
+			max-width: 500px;
+			margin: auto;
 		}
 		header {
 			height: 60px;
@@ -44,6 +60,16 @@
 			background: #ddd;
 			margin: 2rem 0;
 			border: 0;
+		}
+
+		@media screen and (max-width: 500px) {
+			.js--bl-show-modal {
+				display: block;
+				margin-top: 5px;
+			}
+			#bl-content-inline .js--bl-show-modal {
+				margin-top: 15px;
+			}
 		}
 
 		@media screen and (min-width: 800px) {
@@ -82,14 +108,12 @@
 
 		<header></header>
 		<main>
-			<!-- as a banner then in modal -->
-			<div id="bl-container-simple">
-				<div id="bl-content-simple">
-					<strong>Want to help improve {productName}?</strong>
-					<a href="###" id="bl-intro-button" class="js--bl-show-modal">Join our beta-tester list!</a>
-				</div>
+			
+			<div id="bl-content-inline" class="bl-content">
+				<strong>Want to help improve {productName}?</strong>
+				<a href="###" class="js--bl-show-modal">Become a beta-tester!</a>
 			</div>
-			<!--\ as a banner then in modal -->
+
 			<h1>
 				This be a header
 			</h1>
@@ -116,6 +140,14 @@
 			</p>
 		</main>
 		<aside></aside>
+
+		<div id="bl-content-fixed" class="bl-content">
+			<div id="bl-content-fixed-wrapper">
+				<strong>Want to help improve {productName}?</strong>
+				<br />
+				<a href="###" class="js--bl-show-modal">Join our beta-tester list!</a>
+			</div>
+		</div>
 		
 	</body>
 	<script src="app.js" async></script>

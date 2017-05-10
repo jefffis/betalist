@@ -16,21 +16,9 @@ ex: for position: fixed; support
 .modal-is-shown {
 	overflow: hidden;
 }
-#bl-content,
-#bl-content-simple {
-	overflow: hidden;
-	background: #FAF7CD;
-	padding: 20px;
-	border-radius: 3px; /**** variable by customer ****/
-	box-shadow: 0 0 0 1px rgba(0,0,0,0.1) inset;
-	/**** no font styling, inherit from site ****/
-}
 #bl-intro-title {
 	font-size: 18px;
 	font-size: calc(1rem * 1.125); /**** if supported, fits better into site design ****/
-}
-#bl-intro-button {
-	/**** color styling? or inherit from site ****/
 }
 #bl-intro-content {
 	opacity: 1;
@@ -346,10 +334,6 @@ ex: for position: fixed; support
 	}
 }
 @media screen and (max-width: 500px) {
-	#bl-intro-button {
-		display: block;
-		margin-top: 15px;
-	}
 	#bl-label,
 	#bl-submit {
 		float: none;
