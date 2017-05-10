@@ -365,11 +365,11 @@ ex: for position: fixed; support
 	}
 }
 
-/* simple version */
-#bl-content-simple {
-	font-size: 18px;
-	font-size: calc(1rem * 1.125); /**** if supported, fits better into site design ****/
-}
+/**** beta list branding ****/
+/*#bl-branding-logo {
+	display: block;
+	max-width: 40px;
+}*/
 
 /**** beta list modal ****/
 #bl-modal-wrapper-container {
@@ -421,9 +421,11 @@ logo placeholder
 ideally, customer will upload their logo
 *****/
 #bl-logo {
-	display: block;
-	max-width: 50px;
+	height: 50px;
+	width: 50px;
+	background: rgba(0,0,0,0.1);
 	margin: 24px auto 15px;
+	border-radius: 5px;
 }
 #bl-modal-title {
 	margin-bottom: 1.5rem;
