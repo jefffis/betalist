@@ -113,6 +113,7 @@ ex: for position: fixed; support
 	margin-bottom: 12px;
 	font-size: 24px;
 	font-weight: bold;
+	line-height: 1.3;
 }
 #bl-learn-more-holder .bl-learn-more-content {
 	margin-bottom: 18px;
