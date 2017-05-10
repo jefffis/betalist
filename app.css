@@ -16,10 +16,6 @@ ex: for position: fixed; support
 .modal-is-shown {
 	overflow: hidden;
 }
-#bl-intro-title {
-	font-size: 18px;
-	font-size: calc(1rem * 1.125); /**** if supported, fits better into site design ****/
-}
 #bl-intro-content {
 	opacity: 1;
 	transition: opacity .25s ease-in-out;
@@ -98,10 +94,10 @@ ex: for position: fixed; support
 }*/
 #bl-learn-more-title {
 	margin-top: 30px;
-	margin-bottom: 12px;
+	margin-bottom: 20px;
 	font-size: 24px;
 	font-weight: bold;
-	line-height: 1.3;
+	line-height: 1.2;
 }
 #bl-learn-more-holder .bl-learn-more-content {
 	margin-bottom: 18px;
@@ -326,7 +322,7 @@ ex: for position: fixed; support
 
 @media screen and (max-width: 600px) {
 	#bl-modal-wrapper {
-		padding: 0 1.5rem;
+		padding: 0 24px;
 	}
 	#bl-modal-close {
 		top: -48px;
@@ -412,12 +408,15 @@ ideally, customer will upload their logo
 	/*border-radius: 5px;*/
 }
 #bl-modal-title {
-	margin-bottom: 1.5rem;
-	padding-bottom: 1.5rem;
+	margin-bottom: 24px;
+	padding-bottom: 24px;
 	border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+#bl-modal-title-content {
+	margin-bottom: 20px;
 	font-size: 24px;
 	font-weight: bold;
-	line-height: 1.3;
+	line-height: 1.2;
 }
 #bl-modal-title-micro {
 	display: block;
@@ -496,8 +495,8 @@ ideally, customer will upload their logo
 	padding-right: 0;
 }
 .is-mobile-device #bl-modal-close {
-	top: 1.5rem;
-	right: 1.5rem;
+	top: 24px;
+	right: 24px;
 }
 .is-mobile-device #bl-submitted-content {
 	margin: 0;
