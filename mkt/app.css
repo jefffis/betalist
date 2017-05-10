@@ -66,14 +66,14 @@ html {
 	font-size: 50px;
 	font-weight: 400;
 	line-height: 1.1;
-	text-shadow: 0 1px 1px #1BA9D0;
+	/*text-shadow: 0 1px 1px #1BA9D0;*/
 }
 #bl-mkt-main-sub {
 	margin-top: 1.25rem;
 	margin-bottom: 4.5rem;
 	font-size: 24px;
 	line-height: 1.2;
-	text-shadow: 0 1px 1px #1BA9D0;
+	/*text-shadow: 0 1px 1px #1BA9D0;*/
 }
 #bl-mkt-form {
 	max-width: 500px;
@@ -84,7 +84,7 @@ html {
 	margin-bottom: .75rem;
 	/*color: rgba(255,255,255,0.85);*/
 	text-align: left;
-	text-shadow: 0 1px 1px #1BA9D0;
+	/*text-shadow: 0 1px 1px #1BA9D0;*/
 }
 #bl-mkt-email-lbl {
 	float: left;
