@@ -9,7 +9,7 @@ var blBody = document.getElementsByTagName('body')[0],
 	// intro
 	blIntroContent = document.createElement('div'),
 	blModalTitle = document.createElement('div'),
-	blModalTitleLogo = document.createElement('div'),
+	blModalTitleLogo = document.createElement('img'),
 	blModalTitleContent = document.createElement('div'),
 	blModalTitleSmall = document.createElement('small'),
 	blLearnMoreLink = document.createElement('a'),
@@ -65,6 +65,7 @@ blModalFormContainer.id = 'bl-modal-form';
 blIntroContent.id = 'bl-intro-content';
 
 blModalTitleLogo.id = 'bl-logo';
+blModalTitleLogo.setAttribute('data-src', 'http://wtf.jefff.co/betalist/placeholder--logo.png');
 blModalTitle.id = 'bl-modal-title';
 blModalTitleContent.id = 'bl-modal-title-content';
 blModalTitleContent.innerText = 'Help us improve {productName}.';
@@ -223,6 +224,9 @@ function loadImages() {
 	}
 }
 function showModal() {
+	var blModalTitleLogoSrc = blModalTitleLogo.getAttribute('data-src');
+	blModalTitleLogo.setAttribute('src', blModalTitleLogoSrc);
+
 	if(narrowWindow) scrollPos = window.scrollY;
 	blModalContainer.className = 'is-shown';
 	bodyClassOriginal = blBody.className; // get original body class names

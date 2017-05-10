@@ -405,11 +405,11 @@ logo placeholder
 ideally, customer will upload their logo
 *****/
 #bl-logo {
-	height: 50px;
-	width: 50px;
-	background: rgba(0,0,0,0.1);
+	display: block;
+	max-height: 50px;
+	/*background: rgba(0,0,0,0.1);*/
 	margin: 24px auto 15px;
-	border-radius: 5px;
+	/*border-radius: 5px;*/
 }
 #bl-modal-title {
 	margin-bottom: 1.5rem;
