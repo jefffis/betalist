@@ -400,13 +400,11 @@ ex: for position: fixed; support
 logo placeholder
 ideally, customer will upload their logo
 *****/
-#bl-logo {
+/*#bl-logo {
 	display: block;
 	max-height: 50px;
-	/*background: rgba(0,0,0,0.1);*/
 	margin: 24px auto 15px;
-	/*border-radius: 5px;*/
-}
+}*/
 #bl-modal-title {
 	margin-bottom: 24px;
 	padding-bottom: 24px;
@@ -518,9 +516,12 @@ ideally, customer will upload their logo
 	padding-left: 0;
 	padding-right: 0;
 }
-.is-mobile-device #bl-video-holder {
-	border-radius: 0;
+.is-mobile-device #bl-learn-more-link {
+	display: block;
 }
+/*.is-mobile-device #bl-video-holder {
+	border-radius: 0;
+}*/
 .is-mobile-device #bl-back-link {
 	margin-bottom: 30px;
 }
@@ -536,7 +537,10 @@ ideally, customer will upload their logo
 	fill: #777;
 }
 @media screen and (max-height: 540px) {
-	.is-mobile-device #bl-logo {
+	/*.is-mobile-device #bl-logo {
 		display: none;
+	}*/
+	#bl-learn-more-holder .bl-learn-more-content {
+		font-size: 15px;
 	}
 }

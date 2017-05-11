@@ -180,7 +180,6 @@ html {
 	color: #32C9F1;
 	text-align: center;
 }
-
 @media screen and (max-width: 560px) {
 	#bl-mkt-header {
 		margin-bottom: 3rem;
@@ -232,6 +231,15 @@ html {
 		text-align: center;*/
 		margin-left: -1.5rem;
 		margin-right: -1.5rem;
+	}
+}
+
+@media screen and (max-height: 540px) {
+	#bl-mkt-main-header {
+		font-size: 32px;
+	}
+	#bl-mkt-main-sub {
+		font-size: 20px;
 	}
 }
 
