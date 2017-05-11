@@ -338,10 +338,10 @@ ex: for position: fixed; support
 	#bl-submit {
 		margin-top: 15px;
 		margin-left: 0;
-		padding: .85rem 0;
+		padding: 13px 0;
 	}
 	#bl-email {
-		padding: .85rem;
+		padding: 13px;
 	}
 }
 
