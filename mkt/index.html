@@ -42,6 +42,7 @@
 			document.addEventListener("touchstart", function() {},false);
 			document.getElementById('bl-mkt-form').onsubmit = function(e) {
 				e.preventDefault();
+				window.location.href = 'start.html' + (document.getElementById('bl-mkt-email').value !== '' ? '?email=' + document.getElementById('bl-mkt-email').value : '');
 			}
 		</script>
 	</body>

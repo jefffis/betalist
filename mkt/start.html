@@ -10,11 +10,17 @@
 	<body>
 		<header id="bl-mkt-header">
 			<img src="logo.png" id="bl-mkt-logo" alt="betalist logo" />
-			<!-- <a href="###" id="bl-mkt-login">Log In</a> -->
+			<a href="###" id="bl-mkt-login">Log In</a>
 		</header>
 		<div id="bl-mkt-main-form">
 			<div id="bl-mkt-main-form-content">
-				<h1 id="bl-mkt-form-header">Let&rsquo;s get started:</h1>
+				<h3>
+					<strong>Step 2</strong> of 4
+				</h3>
+				<div id="bl-mkt-progress-bar">
+					<span id="bl-mkt-progress"></span>
+				</div>
+				<h1 id="bl-mkt-form-header">Create your account:</h1>
 				<form action="POST" id="bl-mkt-form">
 					<fieldset>
 						<label class="bl-mkt-field">
@@ -31,19 +37,29 @@
 						<button id="bl-mkt-submit">
 							Continue
 						</button>
+						<small class="bl-mkt-micro">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+						</small>
 					</fieldset>
 				</form>
 			</div>
 			<aside id="bl-mkt-main-form-aside">
-				<h2>FUD reducers</h2>
+				<h2>Why create a betalist?</h2>
 				<ul>
-					<li>Foo</li>
-					<li>Bar</li>
-					<li>Baz</li>
+					<li>User testing without your actual customers is pointless</li>
+					<li>Recruiting your customers for user testing is time-consuming</li>
+					<li>Giving your customers more visibility into your product is priceless</li>
 				</ul>
 			</aside>
 		</div>
 		<script>
+			function getUrlParameter(name) {
+				name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+				var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+				var results = regex.exec(location.search);
+				return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+			}
+			if(getUrlParameter('email')) document.getElementById('bl-mkt-email').value = getUrlParameter('email');
 			document.addEventListener("touchstart", function() {},false);
 			document.getElementById('bl-mkt-form').onsubmit = function(e) {
 				e.preventDefault();
