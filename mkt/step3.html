@@ -10,29 +10,31 @@
 	<body>
 		<header id="bl-mkt-header">
 			<img src="logo.png" id="bl-mkt-logo" alt="betalist logo" />
-			<a href="###" id="bl-mkt-login">Log In</a>
+			<!-- <a href="###" id="bl-mkt-login">Log In</a> -->
 		</header>
-		<div id="bl-mkt-main-form">
+		<div id="bl-mkt-main-form" _class="bl-mkt--no-side">
+			<!-- <div id="bl-mkt-success-msg">
+				Welcome aboard! You&rsquo;re almost done.
+			</div> -->
 			<div id="bl-mkt-main-form-content">
 				<h3>
-					<strong>Step 2</strong> of 4
+					<strong>Step 3</strong> of 4
 				</h3>
 				<div id="bl-mkt-progress-bar">
-					<span id="bl-mkt-progress" style="width: 25%;"></span>
+					<span id="bl-mkt-progress" style="width: 50%;"></span>
 				</div>
-				<h1 id="bl-mkt-form-header">Create your account</h1>
+				<h1 id="bl-mkt-form-header">Create your betalist</h1>
 				<form action="POST" id="bl-mkt-form">
 					<fieldset>
-						<label class="bl-mkt-field">
-							Your business email
-							<input type="email" id="bl-mkt-email" name="bl-mkt-email" value="" class="bl-mkt-input" />
+						<!-- <label class="bl-mkt-field">
+							Company name
+							<input type="text" id="bl-mkt-company-name" name="bl-mkt-company-name" value="" class="bl-mkt-input" />
 						</label>
-						<hr class="bl-mkt-hr" />
+						<hr class="bl-mkt-hr" /> -->
 						<label class="bl-mkt-field">
-							Enter a password
-							<input type="password" id="bl-mkt-password" name="bl-mkt-password" value="" class="bl-mkt-input bl-mkt-input--error" />
-							<small class="bl-mkt-micro bl-mkt-micro--error">Please enter a password</small>
-							<small class="bl-mkt-micro">At least 6 characters long</small>
+							Choose a name
+							<input type="text" autofocus id="bl-mkt-list-name" name="bl-mkt-list-name" value="" class="bl-mkt-input" />
+							<small class="bl-mkt-micro">This is the name of your first betalist. You can create others, or change this name later as well.</small>
 						</label>
 						<hr class="bl-mkt-hr" />
 						<button id="bl-mkt-submit">
@@ -45,7 +47,7 @@
 				</form>
 			</div>
 			<aside id="bl-mkt-main-form-aside">
-				<h2>Why create a betalist?</h2>
+				<h2>What is a betalist?</h2>
 				<ul>
 					<li>User testing without your actual customers is pointless</li>
 					<li>Recruiting your customers for user testing is time-consuming</li>
@@ -54,21 +56,11 @@
 			</aside>
 		</div>
 		<script>
-			function getUrlParameter(name) {
-				name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-				var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-				var results = regex.exec(location.search);
-				return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-			}
-			if(getUrlParameter('email')) {
-				document.getElementById('bl-mkt-email').value = getUrlParameter('email');
-			} else {
-				document.getElementById('bl-mkt-email').focus();
-			}
 			document.addEventListener("touchstart", function() {},false);
 			document.getElementById('bl-mkt-form').onsubmit = function(e) {
 				e.preventDefault();
-				window.location.href = 'step3.html';
+				// window.location.href = 'step4.html' + (document.getElementById('bl-mkt-list-name').value !== '' ? '?name=' + document.getElementById('bl-mkt-list-name').value : '');
+				window.location.href = 'step4.html';
 			}
 		</script>
 	</body>

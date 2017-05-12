@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Create your betalist account.</title>
+		<link rel="stylesheet" href="start.css" />
+	</head>
+	<body>
+		<header id="bl-mkt-header">
+			<img src="logo.png" id="bl-mkt-logo" alt="betalist logo" />
+			<!-- <a href="###" id="bl-mkt-login">Log In</a> -->
+		</header>
+		<div id="bl-mkt-main-form" class="bl-mkt--no-side">
+			<div id="bl-mkt-main-form-content">
+				<!-- <div id="bl-mkt-success-msg">
+					Welcome aboard! You&rsquo;re almost done.
+				</div> -->
+				<div id="bl-mkt-done">
+					<img src="checkmark.png" />
+				</div>
+				<h1 id="bl-mkt-form-header">Awesome job!</h1>
+				<p>
+					You&rsquo;re one step closer to better, more actionable insights from your user testing efforts.
+				</p>
+				<hr class="bl-mkt-hr" />
+				<a href="####" class="bl-mkt-button">Next up: Payment</a>
+			</div>
+			<!-- <aside id="bl-mkt-main-form-aside">
+				<h2>What do I do with this?</h2>
+				<ul>
+					<li>User testing without your actual customers is pointless</li>
+					<li>Recruiting your customers for user testing is time-consuming</li>
+					<li>Giving your customers more visibility into your product is priceless</li>
+				</ul>
+			</aside> -->
+		</div>
+		<script>
+			// function getUrlParameter(name) {
+			// 	name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+			// 	var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+			// 	var results = regex.exec(location.search);
+			// 	return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+			// }
+			// if(getUrlParameter('name')) document.getElementById('bl-mkt-list-name').innerText = getUrlParameter('name');
+			document.addEventListener("touchstart", function() {},false);
+			document.getElementById('bl-mkt-form').onsubmit = function(e) {
+				e.preventDefault();
+			}
+			document.getElementById('bl-mkt-list-code').onfocus = function() {
+				this.select();
+			}
+		</script>
+	</body>
+</html>

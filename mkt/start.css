@@ -61,6 +61,18 @@ h1, h2, h3, h4, strong {
 	border-color: #1397BB;
 }*/
 
+#bl-mkt-done {
+	background: #00D921;
+	margin: -2rem -2rem 2rem;
+	padding: 2rem;
+	border-radius: 3px 3px 0 0;
+}
+#bl-mkt-done img {
+	display: block;
+	max-width: 100px;
+	margin: auto;
+}
+
 #bl-mkt-main-form {
 	position: relative;
 	max-width: 500px;
@@ -74,7 +86,7 @@ h1, h2, h3, h4, strong {
 	box-shadow: 0 1px 2px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.075);
 }
 #bl-mkt-form-header {
-	margin-bottom: 1.5rem;
+	margin-bottom: .5rem;
 	font-size: 35px;
 }
 .bl-mkt-hr {
@@ -91,16 +103,43 @@ h1, h2, h3, h4, strong {
 	background: white;
 	margin-top: 10px;
 	padding: 1rem 1.125rem;
-	border: 1px solid #ccc;
+	border: 1px solid #1BA9D0;
 	border-radius: 3px;
 	font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 18px;
 	-webkit-appearance: none;
 }
-.bl-mkt-input:focus {
-	border-color: #1BA9D0;
-	box-shadow: 0 0 0 2px #efefef;
+.bl-mkt-input--error {
+	border-color: red;
 }
+.bl-mkt-input:focus {
+	border-color: #07526F;
+	box-shadow: 0 0 0 1px #07526F, 0 0 0 3px rgba(0,0,0,0.075);
+}
+.bl-mkt-input--error:focus {
+	border-color: red;
+	box-shadow: 0 0 0 2px rgba(0,0,0,0.075);
+}
+
+.bl-mkt-textarea--read-only {
+	display: block;
+	height: 10rem;
+	width: 100%;
+	outline: none;
+	background: white;
+	margin-top: 10px;
+	padding: 10px;
+	border: 1px solid #1BA9D0;
+	border-radius: 3px;
+	font-family: monospace;
+	font-size: 14px;
+	resize: none;
+}
+.bl-mkt-textarea--read-only:focus {
+	border-color: #07526F;
+	box-shadow: 0 0 0 1px #07526F, 0 0 0 3px rgba(0,0,0,0.075);
+}
+
 .bl-mkt-micro {
 	display: block;
 	margin-top: 8px;
@@ -108,7 +147,14 @@ h1, h2, h3, h4, strong {
 	font-size: 13px;
 	line-height: 1.25;
 }
-#bl-mkt-submit {
+.bl-mkt-micro + .bl-mkt-micro {
+	margin-top: 3px;
+}
+.bl-mkt-micro--error {
+	color: red;
+}
+#bl-mkt-submit,
+.bl-mkt-button {
 	display: block;
 	width: 100%;
 	outline: none;
@@ -120,12 +166,19 @@ h1, h2, h3, h4, strong {
 	font-family: inherit;
 	font-size: 20px;
 }
-#bl-mkt-submit:focus {
+#bl-mkt-submit:focus,
+.bl-mkt-button:focus {
 	box-shadow: 0 0 0 2px rgba(0,0,0,0.125);
 }
-#bl-mkt-submit:active {
+#bl-mkt-submit:active,
+.bl-mkt-button:active {
 	background: #043B4F;
 	color: rgba(255,255,255,0.75);
+}
+.bl-mkt-button {
+	display: inline-block;
+	width: auto;
+	text-decoration: none;
 }
 
 #bl-mkt-main-form-aside {
@@ -168,21 +221,31 @@ h1, h2, h3, h4, strong {
 #bl-mkt-progress-bar {
 	height: .5rem;
 	background: #ddd;
-	margin: .5rem auto 1.5rem;
-	border-radius: 3px;
+	margin: .5rem auto 2.5rem;
+	border-radius: 4px;
 	overflow: hidden;
 	/*margin: -1.5rem -1.5rem 1.5rem;*/
 }
 #bl-mkt-progress {
 	display: block;
 	height: 100%;
-	width: 25%;
+	/*width: 0;*/
 	background: #00D921;
 	/*transition: width .5s ease-in-out;*/
 }
 
+#bl-mkt-success-msg {
+	padding: 0 0 1rem;
+	color: white;
+	text-align: center;
+}
+
 @media screen and (max-width: 560px) {
+	html {
+		background: white;
+	}
 	#bl-mkt-header {
+		background: #32C9F1;
 		margin-bottom: .5rem;
 		padding: 1.5rem;
 	}
@@ -215,14 +278,17 @@ h1, h2, h3, h4, strong {
 	#bl-mkt-main-form-content {
 		padding: 3rem;
 	}
-	#bl-mkt-progress-bar {
-		/*margin: -3rem -3rem 1.5rem;*/
+	#bl-mkt-done {
+		margin: -3rem -3rem 3rem;
 	}
 }
 
 @media screen and (min-width: 900px) {
 	#bl-mkt-main-form {
 		max-width: 800px;
+	}
+	#bl-mkt-main-form.bl-mkt--no-side {
+		max-width: 500px;
 	}
 	#bl-mkt-main-form-aside {
 		position: absolute;
