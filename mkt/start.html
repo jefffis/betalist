@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Create your betalist account.</title>
+		<link rel="stylesheet" href="start.css" />
+	</head>
+	<body>
+		<header id="bl-mkt-header">
+			<img src="logo.png" id="bl-mkt-logo" alt="betalist logo" />
+			<!-- <a href="###" id="bl-mkt-login">Log In</a> -->
+		</header>
+		<div id="bl-mkt-main-form">
+			<div id="bl-mkt-main-form-content">
+				<h1 id="bl-mkt-form-header">Let&rsquo;s get started:</h1>
+				<form action="POST" id="bl-mkt-form">
+					<fieldset>
+						<label class="bl-mkt-field">
+							Your business email
+							<input type="email" id="bl-mkt-email" name="bl-mkt-email" value="" class="bl-mkt-input" />
+						</label>
+						<hr class="bl-mkt-hr" />
+						<label class="bl-mkt-field">
+							Enter a password
+							<input type="password" id="bl-mkt-password" name="bl-mkt-password" value="" class="bl-mkt-input" />
+							<small class="bl-mkt-micro">At least 6 characters long</small>
+						</label>
+						<hr class="bl-mkt-hr" />
+						<button id="bl-mkt-submit">
+							Continue
+						</button>
+					</fieldset>
+				</form>
+			</div>
+			<aside id="bl-mkt-main-form-aside">
+				<h2>FUD reducers</h2>
+				<ul>
+					<li>Foo</li>
+					<li>Bar</li>
+					<li>Baz</li>
+				</ul>
+			</aside>
+		</div>
+		<script>
+			document.addEventListener("touchstart", function() {},false);
+			document.getElementById('bl-mkt-form').onsubmit = function(e) {
+				e.preventDefault();
+			}
+		</script>
+	</body>
+</html>
