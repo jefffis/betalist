@@ -156,6 +156,7 @@ h1, h2, h3, h4, strong {
 #bl-mkt-submit,
 .bl-mkt-button {
 	display: block;
+	position: relative;
 	width: 100%;
 	outline: none;
 	background: #07526F;
@@ -176,9 +177,55 @@ h1, h2, h3, h4, strong {
 	color: rgba(255,255,255,0.75);
 }
 .bl-mkt-button {
-	display: inline-block;
-	width: auto;
+	/*display: inline-block;
+	width: auto;*/
+	/*padding: 1rem 1.75rem .9rem;*/
+	padding-bottom: .9rem;
+	text-align: center;
 	text-decoration: none;
+}
+#bl-mkt-submit:before,
+#bl-mkt-submit:after {
+	opacity: 0;
+	transition: opacity .5s ease-in-out;
+	content: "";
+}
+#bl-mkt-submit.is-submitted {
+	color: #07526F;
+}
+#bl-mkt-submit:disabled {
+	cursor: default;
+}
+#bl-mkt-submit.is-submitted:before,
+#bl-mkt-submit.is-submitted:after {
+	display: block;
+	position: absolute;
+	z-index: 2;
+	opacity: 1;
+}
+#bl-mkt-submit.is-submitted:before {
+	top: 50%;
+	left: 50%;
+	height: 20px;
+	width: 2px;
+	background: white;
+	margin-top: -10px;
+	margin-left: -1px;
+	border-radius: 2px;
+	animation: blRotate 1s infinite;
+}
+#bl-mkt-submit.is-submitted:after {
+	top: 50%;
+	left: 50%;
+	opacity: .5;
+	height: 2px;
+	width: 20px;
+	background: white;
+	margin-top: -1px;
+	margin-left: -10px;
+	border-radius: 2px;
+	animation: blRotate 1s infinite;
+	animation-delay: .25s;
 }
 
 #bl-mkt-main-form-aside {
@@ -319,3 +366,12 @@ h1, h2, h3, h4, strong {
 		
 	}
 }*/
+
+@keyframes blRotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

@@ -150,6 +150,7 @@ html {
 }
 #bl-mkt-submit {
 	display: block;
+	position: relative;
 	float: right;
 	width: calc(35% - .5rem);
 	outline: none;
@@ -160,7 +161,6 @@ html {
 	cursor: pointer;
 	font-family: inherit;
 	font-size: 20px;
-	/*line-height: 1;*/
 }
 #bl-mkt-submit:focus {
 	box-shadow: 0 0 0 2px rgba(0,0,0,0.125);
@@ -168,6 +168,49 @@ html {
 #bl-mkt-submit:active {
 	background: #043B4F;
 	color: rgba(255,255,255,0.75);
+}
+#bl-mkt-submit:before,
+#bl-mkt-submit:after {
+	opacity: 0;
+	transition: opacity .5s ease-in-out;
+	content: "";
+}
+#bl-mkt-submit.is-submitted {
+	color: #07526F;
+}
+#bl-mkt-submit:disabled {
+	cursor: default;
+}
+#bl-mkt-submit.is-submitted:before,
+#bl-mkt-submit.is-submitted:after {
+	display: block;
+	position: absolute;
+	z-index: 2;
+	opacity: 1;
+}
+#bl-mkt-submit.is-submitted:before {
+	top: 50%;
+	left: 50%;
+	height: 20px;
+	width: 2px;
+	background: white;
+	margin-top: -10px;
+	margin-left: -1px;
+	border-radius: 2px;
+	animation: blRotate 1s infinite;
+}
+#bl-mkt-submit.is-submitted:after {
+	top: 50%;
+	left: 50%;
+	opacity: .5;
+	height: 2px;
+	width: 20px;
+	background: white;
+	margin-top: -1px;
+	margin-left: -10px;
+	border-radius: 2px;
+	animation: blRotate 1s infinite;
+	animation-delay: .25s;
 }
 
 #bl-mkt-more-wrapper {
@@ -307,5 +350,14 @@ html {
 	}
 	.bl-mkt-br {
 		display: inline;
+	}
+}
+
+@keyframes blRotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
 	}
 }
