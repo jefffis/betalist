@@ -20,16 +20,19 @@
 	box-sizing: border-box;
 }
 html {
-	background: #32C9F1;
 	font: normal 100%/1.2 'franklingothic-book', 'Helvetica', Arial, sans-serif;
 }
 
+#bl-mkt-intro-container {
+	background: #32C9F1;
+	padding-top: 5rem;
+}
 #bl-mkt-logo {
 	display: block;
 	position: relative;
 	z-index: 4;
 	max-width: 115px;
-	margin: 5rem auto 20vh;
+	margin: 0 auto 20vh;
 }
 #bl-mkt-login {
 	display: inline-block;
@@ -190,8 +193,11 @@ html {
 		margin-bottom: 3rem;
 		padding: 1.5rem;
 	}
+	#bl-mkt-intro-container {
+		padding-top: .5rem;
+	}
 	#bl-mkt-logo {
-		margin: .5rem 0 0;
+		margin: 0;
 	}
 	#bl-mkt-login {
 		top: 1.5rem;
@@ -245,6 +251,14 @@ html {
 	}
 	#bl-mkt-main-sub {
 		font-size: 20px;
+	}
+}
+
+@media screen and (min-height: 600px) {
+	#bl-mkt-intro-container {
+		position: relative;
+		height: 900px;
+		max-height: 100vh;
 	}
 }
 

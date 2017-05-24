@@ -62,10 +62,10 @@ h1, h2, h3, h4, strong {
 }*/
 
 #bl-mkt-done {
-	background: #00D921;
-	margin: -2rem -2rem 2rem;
-	padding: 2rem;
-	border-radius: 3px 3px 0 0;
+	/*background: #00D921;*/
+	/*margin: -2rem -2rem 2rem;*/
+	padding: 2rem 0 3.5rem;
+	/*border-radius: 3px 3px 0 0;*/
 }
 #bl-mkt-done img {
 	display: block;
@@ -267,6 +267,9 @@ h1, h2, h3, h4, strong {
 	#bl-mkt-submit {
 		font-family: 'franklingothic-demi', 'Helvetica', Arial, sans-serif;
 	}
+	#bl-mkt-done img {
+		margin: 0;
+	}
 }
 @media screen and (max-height: 540px) {
 	#bl-mkt-main-form-content {
@@ -278,9 +281,9 @@ h1, h2, h3, h4, strong {
 	#bl-mkt-main-form-content {
 		padding: 3rem;
 	}
-	#bl-mkt-done {
+	/*#bl-mkt-done {
 		margin: -3rem -3rem 3rem;
-	}
+	}*/
 }
 
 @media screen and (min-width: 900px) {
