@@ -311,7 +311,11 @@ h1, h2, h3, h4, strong {
 		border-radius: 0;
 		box-shadow: none;
 	}
-	#bl-mkt-submit {
+	.bl-mkt-textarea--read-only {
+		font-size: 16px;
+	}
+	#bl-mkt-submit,
+	.bl-mkt-button {
 		font-family: 'franklingothic-demi', 'Helvetica', Arial, sans-serif;
 	}
 	#bl-mkt-done img {
