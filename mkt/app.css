@@ -167,15 +167,21 @@ h1, h2, h3, strong, b, th {
 }
 
 #bl-app-success-msg {
-	background: #BEFAC7;
-	margin-bottom: 1.5rem;
-	padding: 1rem 1.25rem;
-	/*border: 1px solid #BEFAC7;*/
+	background: #E8FFEC;
+	margin-bottom: 3rem;
+	padding: 2.5rem;
+	border: 1px solid #00D921;
 	border-radius: 3px;
-	/*box-shadow: 2px 2px 0 rgba(0,0,0,0.025);*/
-	color: #07941D;
-	font-size: 18px;
-	line-height: 1;
+	/*box-shadow: 0 0 0 2px rgba(0,0,0,0.025) inset;*/
+	/*color: #07941D;*/
+	/*font-size: 18px;*/
+	/*line-height: 1;*/
+	text-align: center;
+}
+#bl-app-success-msg img {
+	display: block;
+	max-width: 100px;
+	margin: 1rem auto 1.5rem;
 }
 
 #bl-app-no-subscribers {
@@ -226,8 +232,9 @@ h1, h2, h3, strong, b, th {
 	right: 0;
 	height: 1rem;
 	width: 1rem;
-	background: #ddd;
+	/*background: #ddd;*/
 	/*margin-top: -.1rem;*/
+	border: 1px solid #ddd;
 	border-radius: 100%;
 	content: "";
 }
@@ -265,6 +272,21 @@ h1, h2, h3, strong, b, th {
 #bl-app-table td {
 	padding: 1rem;
 	border-bottom: 1px solid #ddd;
+}
+.bl-app-sample {
+	position: relative;
+}
+.bl-app-sample:before {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	opacity: .5;
+	height: 100%;
+	width: 100%;
+	background: white;
+	content: "";
 }
 .bl-app-sample td {
 	color: #777;
