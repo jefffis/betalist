@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
 	    <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Create your betalist account.</title>
+		<title>Name your betalist</title>
 		<link rel="stylesheet" href="start.css" />
 	</head>
 	<body>
@@ -12,7 +12,7 @@
 			<img src="logo.png" id="bl-mkt-logo" alt="betalist logo" />
 			<!-- <a href="###" id="bl-mkt-login">Log In</a> -->
 		</header>
-		<div id="bl-mkt-main-form" _class="bl-mkt--no-side">
+		<div id="bl-mkt-main-form" class="bl-mkt--no-side">
 			<!-- <div id="bl-mkt-success-msg">
 				Welcome aboard! You&rsquo;re almost done.
 			</div> -->
@@ -23,7 +23,7 @@
 				<div id="bl-mkt-progress-bar">
 					<span id="bl-mkt-progress" style="width: 50%;"></span>
 				</div>
-				<h1 id="bl-mkt-form-header">Create your betalist</h1>
+				<h1 id="bl-mkt-form-header">Name your betalist</h1>
 				<form action="POST" id="bl-mkt-form">
 					<fieldset>
 						<!-- <label class="bl-mkt-field">
@@ -32,30 +32,43 @@
 						</label>
 						<hr class="bl-mkt-hr" /> -->
 						<label class="bl-mkt-field">
-							Choose a name
+							Your business&rsquo; name
 							<input type="text" autofocus id="bl-mkt-list-name" name="bl-mkt-list-name" value="" class="bl-mkt-input" />
-							<small class="bl-mkt-micro">This is the name of your first betalist. You can create others, or change this name later as well.</small>
+							<small class="bl-mkt-micro">This lets us customize your betalist when you install it on your site.</small>
 						</label>
 						<hr class="bl-mkt-hr" />
 						<button id="bl-mkt-submit">
 							Continue
 						</button>
-						<small class="bl-mkt-micro">
+						<!-- <small class="bl-mkt-micro">
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-						</small>
+						</small> -->
 					</fieldset>
 				</form>
 			</div>
-			<aside id="bl-mkt-main-form-aside">
+			<!-- <aside id="bl-mkt-main-form-aside">
 				<h2>What is a betalist?</h2>
 				<ul>
 					<li>User testing without your actual customers is pointless</li>
 					<li>Recruiting your customers for user testing is time-consuming</li>
 					<li>Giving your customers more visibility into your product is priceless</li>
 				</ul>
-			</aside>
+			</aside> -->
 		</div>
 		<script>
+			function getUrlParameter(name) {
+				name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+				var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+				var results = regex.exec(location.search);
+				return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+			}
+			if(getUrlParameter('email')) {
+				var businessName = getUrlParameter('email').split('@')[1].split('.')[0];
+				businessName = businessName.charAt(0).toUpperCase() + businessName.slice(1);
+				document.getElementById('bl-mkt-list-name').value = businessName;
+			} else {
+				document.getElementById('bl-mkt-list-name').focus();
+			}
 			document.addEventListener("touchstart", function() {},false);
 			document.getElementById('bl-mkt-submit').onclick = function(e) {
 				e.preventDefault();

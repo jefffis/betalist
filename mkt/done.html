@@ -5,39 +5,108 @@
 	    <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Create your betalist account.</title>
-		<link rel="stylesheet" href="start.css" />
+		<link rel="stylesheet" href="app.css" />
 	</head>
 	<body>
-		<header id="bl-mkt-header">
-			<img src="logo.png" id="bl-mkt-logo" alt="betalist logo" />
-			<!-- <a href="###" id="bl-mkt-login">Log In</a> -->
+		<header id="bl-app-header" class="cf">
+			<a href="###" id="bl-app-logo"><img src="logo--bug.png" id="bl-mkt-logo" alt="betalist logo" /></a>
+			<nav id="bl-app-nav">
+				<a href="###" class="bl-app-nav-link bl-app-nav-link--active">My Betalists</a>
+				<a href="###" class="bl-app-nav-link">My Subscribers</a>
+				<span id="bl-app-nav-account">
+					<!-- <img src="user.jpg" /> -->
+					My Account
+					<div id="bl-app-account">
+						<a href="###" class="bl-app-account-link">My Profile</a>
+						<a href="###" class="bl-app-account-link">My Subscription</a>
+						<a href="###" class="bl-app-account-link">Log Out</a>
+					</div>
+				</spam>
+			</nav>
 		</header>
-		<div id="bl-mkt-main-form" class="bl-mkt--no-side">
-			<div id="bl-mkt-main-form-content">
-				<!-- <div id="bl-mkt-success-msg">
-					Welcome aboard! You&rsquo;re almost done.
-				</div> -->
-				<div id="bl-mkt-done">
-					<img src="checkmark--blue.png" />
-				</div>
-				<h1 id="bl-mkt-form-header">Awesome job!</h1>
-				<p>
-					You&rsquo;re one step closer to better, more actionable insights from your user testing efforts.
-				</p>
-				<hr class="bl-mkt-hr" />
-				<a href="####" class="bl-mkt-button">Next up: Payment</a>
+		<div id="bl-app-container">
+			<div id="bl-app-success-msg">
+				Well done! You just created your first betalist.
 			</div>
-			<!-- <aside id="bl-mkt-main-form-aside">
-				<h2>What do I do with this?</h2>
+			<h1 class="cf">
+				{businessName} Betalist
+				<span id="bl-app-settings">
+					Settings
+					<div id="bl-app-settings-actions">
+						<a href="###" class="bl-app-account-link">My Profile</a>
+						<a href="###" class="bl-app-account-link">My Subscription</a>
+						<a href="###" class="bl-app-account-link">Log Out</a>
+					</div>
+				</span>
+			</h1>
+			<table id="bl-app-table" class="bl-app-sample">
+				<thead>
+					<tr>
+						<th>Email Address</th>
+						<th>Tests Done</th>
+						<th>Testing Value</th>
+						<th>Date Subscribed</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>dog_lover71@yahoo.com</td>
+						<td>16</td>
+						<td>High</td>
+						<td>December 15th, 2017</td>
+					</tr>
+					<tr>
+						<td>johnny.appleseed@gmail.com</td>
+						<td>3</td>
+						<td>Mid</td>
+						<td>June 23rd, 2017</td>
+					</tr>
+					<tr>
+						<td>dog_lover71@yahoo.com</td>
+						<td>16</td>
+						<td>High</td>
+						<td>December 15th, 2017</td>
+					</tr>
+					<tr>
+						<td>johnny.appleseed@gmail.com</td>
+						<td>3</td>
+						<td>Mid</td>
+						<td>June 23rd, 2017</td>
+					</tr>
+					<!-- <tr>
+						<td colspan="4" id="bl-app-table-micro">
+							These records are just examples. When your list is inserted on your site, you will see your subscribers here.
+						</td>
+					</tr> -->
+				</tbody>
+			</table>
+			<div id="bl-app-table-micro">
+				These records are just examples. When your list is inserted on your site, you will see your subscribers here.	
+			</div>
+			<!-- <div id="bl-app-no-subscribers">
+				<p>
+					Since you just created this betalist, there are no subcribers yet. Here&rsquo;s what we suggest:
+				</p>
 				<ul>
-					<li>User testing without your actual customers is pointless</li>
-					<li>Recruiting your customers for user testing is time-consuming</li>
-					<li>Giving your customers more visibility into your product is priceless</li>
+					<li>
+						learn <a href="###">how best to embed</a> your betalist
+					</li>
+					<li>
+						see what a <a href="###">subscriber record</a> will look like 
+					</li>
 				</ul>
-			</aside> -->
+				<label class="bl-mkt-field">
+					<strong>Copy your <span id="bl-mkt-list-name">{businessName}</span> code:</strong>
+					<textarea name="bl-mkt-list-code" id="bl-mkt-list-code" class="bl-mkt-textarea--read-only" readonly>&lt;script&gt;function getUrlParameter(a){a=a.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");var b=new RegExp("[\\?&]"+a+"=([^&#]*)"),c=b.exec(location.search);return null===c?"":decodeURIComponent(c[1].replace(/\+/g," "))}getUrlParameter("email")&&(document.getElementById("bl-mkt-email").value=getUrlParameter("email")),document.addEventListener("touchstart",function(){},!1),document.getElementById("bl-mkt-form").onsubmit=function(a){a.preventDefault()};function getUrlParameter(a){a=a.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");var b=new RegExp("[\\?&]"+a+"=([^&#]*)"),c=b.exec(location.search);return null===c?"":decodeURIComponent(c[1].replace(/\+/g," "))}getUrlParameter("email")&&(document.getElementById("bl-mkt-email").value=getUrlParameter("email")),document.addEventListener("touchstart",function(){},!1),document.getElementById("bl-mkt-form").onsubmit=function(a){a.preventDefault()};&lt;/script&gt;</textarea>
+					<small class="bl-mkt-micro">Some microcopy here</small>
+				</label>
+			</div> -->
 		</div>
 		<script>
 			document.addEventListener("touchstart", function() {},false);
+			// document.getElementById('bl-mkt-list-code').onfocus = function() {
+			// 	this.select();
+			// }
 		</script>
 	</body>
 </html>
