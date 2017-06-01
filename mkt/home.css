@@ -24,6 +24,18 @@ html {
 	font: normal 100%/1.2 'franklingothic-book', 'Helvetica', Arial, sans-serif;
 }
 
+a {
+	color: #05b2e0;
+}
+a:visited {
+	color: #043B4F;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	opacity: .65;
+}
 strong {
 	font-family: 'franklingothic-demi', 'Helvetica', Arial, sans-serif;
 	font-weight: normal;
@@ -382,6 +394,13 @@ strong {
 	background: #E05809;
 	color: rgba(255,255,255,0.75);
 }
+#bl-mkt-demo {
+	margin-top: 1.5rem;
+	font-size: 16px;
+}
+/*#bl-mkt-demo a {
+	color: #05b2e0;
+}*/
 
 @media screen and (max-width: 560px) {
 	#bl-mkt-header {
@@ -533,6 +552,10 @@ strong {
 	#bl-mkt-examples a:active {
 		opacity: .65;
 	}
+	#bl-mkt-demo {
+		margin-top: 4rem;
+		text-align: center;
+	}
 }
 
 @media screen and (min-width: 700px) and (min-height: 650px) {
@@ -581,6 +604,14 @@ strong {
 	.bl-mkt-br {
 		display: inline;
 	}
+}
+
+/**** app demo overrides ****/
+#bl-modal-title-content,
+#bl-learn-more-title,
+#bl-submitted-title {
+	font-family: 'franklingothic-demi', 'Helvetica', Arial, sans-serif !important;
+	font-weight: normal !important;
 }
 
 @keyframes blRotate {
