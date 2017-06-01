@@ -41,6 +41,30 @@ strong {
 	font-weight: normal;
 }
 
+.bl-mkt-scroll-more, 
+.bl-mkt-scroll-more--top {
+	position: relative;
+}
+.bl-mkt-scroll-more:after,
+.bl-mkt-scroll-more--top:after {
+	display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    z-index: 1;
+    height: 30px;
+    width: 30px;
+    background: white url(down.png) no-repeat center;
+    background-size: 14px;
+    margin-top: -15px;
+    margin-left: -15px;
+    border-radius: 100%;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.125);
+    content: "";
+}
+.bl-mkt-scroll-more--top:after {
+	top: 0;
+}
 
 #bl-mkt-intro-container {
 	background: #05b2e0; /*32C9F1*/
@@ -380,7 +404,7 @@ strong {
 }
 #bl-mkt-more-cta-wrapper {
 	background: #07526F;
-	margin: 2rem -1.5rem 0;
+	margin: 4rem -1.5rem 0;
 	padding: 3rem 1.5rem;
 	color: white;
 }
