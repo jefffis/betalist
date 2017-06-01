@@ -304,7 +304,7 @@ strong {
 	display: block;
 	position: absolute;
 	top: 0;
-	left: 15px;
+	left: 18px;
 	z-index: 1;
 	height: 100%;
 	width: 2px;
@@ -377,6 +377,9 @@ strong {
 	margin: 2rem -1.5rem 0;
 	padding: 3rem 1.5rem;
 	color: white;
+}
+#bl-mkt-more-cta-wrapper p {
+	font-size: 25px;
 }
 #bl-mkt-submit-btn {
 	display: block;
@@ -532,7 +535,7 @@ strong {
 	}
 	#bl-mkt-more-cta-wrapper p,
 	#bl-mkt-more-cta-wrapper a {
-		max-width: 350px;
+		max-width: 450px;
 		margin-left: auto;
 		margin-right: auto;
 		text-align: center;
