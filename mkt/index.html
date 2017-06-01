@@ -33,7 +33,7 @@
 							</label>
 							<button id="bl-mkt-submit">
 								<!-- Create my list -->
-								Get Early Access
+								Get early access
 							</button>
 						</fieldset>
 					</form>
@@ -86,12 +86,11 @@
 				</a>
 			</div>
 			<div id="bl-mkt-more-cta-wrapper">
-				<hr />
 				<p>
-					Want insights from your customers?
+					Want to start getting <strong>actionable insights from your customers?</strong>
 				</p>
-				<a href="#bl-mkt-form-wrapper" id="bl-mkt-submit-btn">
-					Get Early Access
+				<a href="#bl-mkt-main-sub" id="bl-mkt-submit-btn">
+					Sign up for early access
 				</a>
 			</div>
 		</div>
@@ -112,8 +111,32 @@
 			// 		window.location.href = 'start.html' + (document.getElementById('bl-mkt-email').value !== '' ? '?email=' + document.getElementById('bl-mkt-email').value : '');
 			// 	}, 1000);
 			// }
-			var emailHasError = false;
+			var emailHasError = false,
+				emailHasContent = false;
+
+			document.getElementById('bl-mkt-submit-btn').onclick = function(e) {
+				// e.preventDefault();
+				// var target = document.getElementById('bl-mkt-form').getBoundingClientRect().top;
+				// alert(target);
+				// window.scroll(target, 0);
+				setTimeout(function() {
+					document.getElementById('bl-mkt-email').focus();
+				}, 0);
+			}
 			document.getElementById('bl-mkt-email').onkeyup = function() {
+				if(!emailHasContent) return;
+				if(!validateEmail(this.value)) {
+					handleErrorUI(this, false);
+					return;
+				}
+				handleErrorUI(this, true);
+			}
+			document.getElementById('bl-mkt-email').onblur = function() {
+				if(this.value !== '') {
+					emailHasContent = true;
+				} else {
+					return;
+				}
 				if(!validateEmail(this.value)) {
 					handleErrorUI(this, false);
 					return;
@@ -154,7 +177,7 @@
 					error.setAttribute('class', 'bl-mkt-micro bl-mkt-micro--error');
 					error.innerText = 'Please enter a valid business email';
 					element.classList.add('bl-mkt-input--error');
-					element.focus();
+					// element.focus();
 					element.parentNode.appendChild(error); // TODO, make more robust
 				}
 			}
