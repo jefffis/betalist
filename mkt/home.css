@@ -24,7 +24,7 @@ html {
 	font: normal 100%/1.2 'franklingothic-book', 'Helvetica', Arial, sans-serif;
 }
 
-a {
+a:link {
 	color: #05b2e0;
 }
 a:visited {
@@ -573,9 +573,13 @@ strong {
 	#bl-mkt-more-cta-wrapper a {
 		max-width: 280px;
 	}
+	#bl-mkt-examples {
+		margin-top: -1rem;
+	}
 	#bl-mkt-examples a {
 		width: auto;
 		margin: 0 8px;
+		padding: .25rem .4rem;
 		border-radius: 4px;
 		border: 2px solid #efefef;
 	}
@@ -586,7 +590,7 @@ strong {
 		opacity: .65;
 	}
 	#bl-mkt-demo {
-		margin-top: 4rem;
+		margin-top: 2rem;
 		text-align: center;
 	}
 }
