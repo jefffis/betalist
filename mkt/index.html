@@ -26,7 +26,7 @@
 					<form action="//jefff.us5.list-manage.com/subscribe/post?u=04a55f946b24b93da6e1e6fbe&amp;id=b8001196ab" method="post" id="bl-mkt-form">
 						<fieldset>
 							<label for="bl-mkt-email" id="bl-mkt-email-title">
-								Enter your business email for early access
+								Enter your email for early access
 							</label>
 							<label for="bl-mkt-email" id="bl-mkt-email-lbl">
 								<input type="email" id="bl-mkt-email" name="bl-mkt-email" />
@@ -46,23 +46,27 @@
 		<div id="bl-mkt-more-wrapper">
 			<h2>
 				How does betalist work exactly?
-				<span>
+				<!-- <span>
 					Sign up and start collecting customers.
-				</span>
+				</span> -->
 			</h2>
 			<ul>
 				<li>
 					<img src="icons/create.png" />
-					Create your betalist</li>
+					Create your betalist
+					<small>Sign up &amp; name your list</small></li>
 				<li>
 					<img src="icons/embed.png" />
-					Embed on your site</li>
+					Embed on your site
+					<small>Copy &amp; paste on any page</small></li>
 				<li>
 					<img src="icons/test.png" />
-					Test with your customers</li>
+					Test with your users
+					<small>Get valuable feedback</small></li>
 				<li>
 					<img src="icons/happy.png" />
-					Build better products</li>
+					Build better products
+					<small>Make more money</small></li>
 			</ul>
 			<hr />
 			<h2>
@@ -178,7 +182,7 @@
 					emailHasError = true;
 					var error = document.createElement('small');
 					error.setAttribute('class', 'bl-mkt-micro bl-mkt-micro--error');
-					error.innerText = 'Please enter a valid business email';
+					error.innerText = 'Please enter a valid email.';
 					element.classList.add('bl-mkt-input--error');
 					// element.focus();
 					element.parentNode.appendChild(error); // TODO, make more robust

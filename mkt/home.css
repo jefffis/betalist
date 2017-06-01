@@ -186,6 +186,7 @@ strong {
 	background: #F4610B;
 	margin-top: 8px;
 	padding: 2px 4px;
+	border-radius: 2px;
 	color: white;
 	font-size: 13px;
 	line-height: 1.25;
@@ -324,14 +325,19 @@ strong {
 	margin-top: 5rem;
 	padding-top: 1.5rem;
 }
-#bl-mkt-more-wrapper li:after {
+/*#bl-mkt-more-wrapper li:after {
 	content: ",";
-}
+}*/
 #bl-mkt-more-wrapper li:last-child {
 	padding-bottom: 0;
 }
-#bl-mkt-more-wrapper li:last-child:after {
+/*#bl-mkt-more-wrapper li:last-child:after {
 	content: ".";
+}*/
+#bl-mkt-more-wrapper small {
+	display: block;
+	color: #777;
+	font-size: 14px;
 }
 #bl-mkt-more-wrapper ul img {
 	display: block;
