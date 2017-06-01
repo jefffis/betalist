@@ -31,7 +31,7 @@ strong {
 
 
 #bl-mkt-intro-container {
-	background: #32C9F1;
+	background: #05b2e0; /*32C9F1*/
 	padding-top: 5rem;
 	padding-bottom: 1px;
 }
@@ -189,7 +189,7 @@ strong {
 	float: right;
 	width: calc(40% - .5rem);
 	outline: none;
-	background: #07526F;
+	background: #07526F; /*02356f*/
 	padding: 1rem 1.25rem;
 	border-radius: 3px;
 	color: white;
@@ -272,7 +272,7 @@ strong {
 }
 #bl-mkt-more-wrapper h2 {
 	margin-bottom: 2.5rem;
-	color: #07526F;
+	/*color: #07526F;*/
 	font-size: 30px;
 	font-weight: normal;
 	line-height: 1.2;
@@ -462,7 +462,7 @@ strong {
 		padding: 4rem 0 0;
 	}
 	#bl-mkt-more-wrapper h2 {
-		margin-bottom: 3rem;
+		margin-bottom: 4rem;
 		text-align: center;
 	}
 	#bl-mkt-more-wrapper ul {
@@ -525,7 +525,7 @@ strong {
 		width: auto;
 		margin: 0 8px;
 		border-radius: 4px;
-		border: 2px solid white;
+		border: 2px solid #efefef;
 	}
 	#bl-mkt-examples a:hover {
 		border-color: #ccc;
