@@ -1,15 +1,15 @@
 @font-face {
-    font-family: 'franklingothic-book';
+    font-family: 'franklingothic';
     src: url('fonts/franklingothic-book-webfont.woff2') format('woff2'),
          url('fonts/franklingothic-book-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
-    font-family: 'franklingothic-demi';
+    font-family: 'franklingothic';
     src: url('fonts/franklingothic-demi-webfont.woff2') format('woff2'),
          url('fonts/franklingothic-demi-webfont.woff') format('woff');
-    font-weight: normal;
+    font-weight: bold;
     font-style: normal;
 }
 
@@ -21,7 +21,10 @@
 }
 html {
 	color: #000;
-	font: normal 100%/1.2 'franklingothic-book', 'Helvetica', Arial, sans-serif;
+	font: normal 100%/1.2 'Helvetica', Arial, sans-serif;
+}
+.fonts-loaded {
+	font-family: 'franklingothic', 'Helvetica', Arial, sans-serif;
 }
 
 a:link {
@@ -36,10 +39,10 @@ a:hover {
 a:active {
 	opacity: .65;
 }
-strong {
+/*strong {
 	font-family: 'franklingothic-demi', 'Helvetica', Arial, sans-serif;
 	font-weight: normal;
-}
+}*/
 
 .bl-mkt-scroll-more, 
 .bl-mkt-scroll-more--top {
@@ -144,9 +147,9 @@ strong {
 	max-width: 500px;
 	margin-left: auto;
 	margin-right: auto;
-	font-family: 'franklingothic-demi', 'Helvetica', Arial, sans-serif;
+	/*font-family: 'franklingothic-demi', 'Helvetica', Arial, sans-serif;*/
 	font-size: 50px;
-	font-weight: 400;
+	/*font-weight: 400;*/
 	line-height: 1.1;
 	/*text-shadow: 0 1px 1px #1BA9D0;*/
 }
@@ -743,12 +746,12 @@ strong {
 }
 
 /**** app demo overrides ****/
-#bl-modal-title-content,
+/*#bl-modal-title-content,
 #bl-learn-more-title,
 #bl-submitted-title {
 	font-family: 'franklingothic-demi', 'Helvetica', Arial, sans-serif !important;
 	font-weight: normal !important;
-}
+}*/
 
 @keyframes blRotate {
 	0% {
