@@ -11,6 +11,22 @@
 	</head>
 	<body>
 		<div id="bl-mkt-intro-container" class="bl-mkt-scroll-more">
+			
+			<div id="bl-mkt-form--submitted">
+				<h3 id="bl-mkt-subscribed">
+					Awesome, you&rsquo;re on the list!
+					<span>
+						Look for an email from <u>Jeff @ betalist</u>.
+					</span>
+				</h3>
+				<h3 id="bl-mkt-confirmed">
+					Thank you for your interest!
+					<span>
+						We&rsquo;ll be in touch soon.
+					</span>
+				</h3>
+			</div>
+
 			<header id="bl-mkt-header">
 				<img src="logo.png" id="bl-mkt-logo" alt="betalist logo" />
 				<!-- <a href="###" id="bl-mkt-login">Log In</a> -->
@@ -37,20 +53,6 @@
 							</button>
 						</fieldset>
 					</form>
-					<div id="bl-mkt-form--submitted">
-						<h3 id="bl-mkt-subscribed">
-							Awesome, you&rsquo;re on the list!
-							<span>
-								Look for an email from <u>Jeff @ betalist</u>.
-							</span>
-						</h3>
-						<h3 id="bl-mkt-confirmed">
-							Thank you for your interest!
-							<span>
-								We&rsquo;ll be in touch soon.
-							</span>
-						</h3>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -81,7 +83,7 @@
 			</ul>
 			<hr />
 			<h2>
-				What does it look to my customer?
+				What does it look to a customer?
 				<span>
 					Click each logo to see an example on that site.
 				</span>
@@ -220,14 +222,14 @@
 					document.getElementById('bl-mkt-subscribed').style.display = 'none';
 				}
 				blSuccess.classList.add('is-shown');
-				fadeInSuccess(blSuccess);
+				// fadeInSuccess(blSuccess);
 				adjustBottomCta();
 			}
-			function fadeInSuccess(element) {
-				setTimeout(function() {
-					element.classList.add('is-transitioning');
-				}, 251);
-			}
+			// function fadeInSuccess(element) {
+			// 	setTimeout(function() {
+			// 		element.classList.add('is-transitioning');
+			// 	}, 251);
+			// }
 			function adjustBottomCta() {
 				var blBottomCta = document.getElementById('bl-mkt-submit-btn');
 
