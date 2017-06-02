@@ -103,29 +103,9 @@
 		</div>
 		<script>
 			document.addEventListener("touchstart", function() {},false);
-			// document.getElementById('bl-mkt-submit').onclick = function(e) {
-			// 	e.preventDefault();
-			// 	// this.classList.add('is-submitted');
-			// 	// this.setAttribute('disabled', 'true');
-			// 	// goForth();
-			// }
-			// document.getElementById('bl-mkt-form').onsubmit = function(e) {
-			// 	e.preventDefault();
-			// 	// goForth();
-			// }
-			// function goForth() {
-			// 	setTimeout(function() {
-			// 		window.location.href = 'start.html' + (document.getElementById('bl-mkt-email').value !== '' ? '?email=' + document.getElementById('bl-mkt-email').value : '');
-			// 	}, 1000);
-			// }
 			var emailHasError = false,
 				emailHasContent = false;
-
 			document.getElementById('bl-mkt-submit-btn').onclick = function(e) {
-				// e.preventDefault();
-				// var target = document.getElementById('bl-mkt-form').getBoundingClientRect().top;
-				// alert(target);
-				// window.scroll(target, 0);
 				setTimeout(function() {
 					document.getElementById('bl-mkt-email').focus();
 				}, 0);
@@ -159,7 +139,7 @@
 				handleErrorUI(document.getElementById('bl-mkt-email'), true);
 				this.classList.add('is-submitted');
 				this.setAttribute('disabled', 'true');
-				goForth();
+				// goForth();
 			}
 			document.getElementById('bl-mkt-form').onsubmit = function(e) {
 				e.preventDefault();
@@ -168,34 +148,39 @@
 					return;
 				}
 				handleErrorUI(document.getElementById('bl-mkt-email'), true);
-				goForth();
+				// goForth();
 			}
 			function handleErrorUI(element, isValid) {
-				if(isValid) {
-					var error = element.parentNode.querySelector('.bl-mkt-micro--error');
-					if(!error) return;
-					emailHasError = false;
-					element.classList.remove('bl-mkt-input--error');
-					error.parentNode.removeChild(error);
-				} else {
-					if(emailHasError) return;
-					emailHasError = true;
-					var error = document.createElement('small');
-					error.setAttribute('class', 'bl-mkt-micro bl-mkt-micro--error');
-					error.innerText = 'Please enter a valid email.';
-					element.classList.add('bl-mkt-input--error');
-					// element.focus();
-					element.parentNode.appendChild(error); // TODO, make more robust
-				}
+				setTimeout(function() {
+					if(isValid) {
+						var error = element.parentNode.querySelector('.bl-mkt-micro--error'),
+							label = element.parentNode;
+						if(!error) return;
+						emailHasError = false;
+						element.classList.remove('bl-mkt-input--error');
+						error.parentNode.removeChild(error);
+						label.classList.add('bl-mkt-input--good');
+					} else {
+						if(emailHasError) return;
+						emailHasError = true;
+						var error = document.createElement('small'),
+							label = element.parentNode;
+						error.setAttribute('class', 'bl-mkt-micro bl-mkt-micro--error');
+						error.innerText = 'Please enter a valid email.';
+						element.classList.add('bl-mkt-input--error');
+						element.parentNode.appendChild(error); // TODO, make more robust
+						label.classList.remove('bl-mkt-input--good');
+					}
+				}, 225)
 			}
 			function validateEmail(email) { 
 				var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 				return re.test(email);
 			}
 			function goForth() {
-				// setTimeout(function() {
-				// 	window.location.href = 'step3.html' + (document.getElementById('bl-mkt-email').value !== '' ? '?email=' + document.getElementById('bl-mkt-email').value : '');
-				// }, 1000);
+				setTimeout(function() {
+					window.location.href = 'step3.html' + (document.getElementById('bl-mkt-email').value !== '' ? '?email=' + document.getElementById('bl-mkt-email').value : '');
+				}, 1000);
 			}
 		</script>
 		<script async src="../appDemo.js"></script>
