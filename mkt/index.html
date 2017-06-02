@@ -29,7 +29,7 @@
 								Enter your email for early access
 							</label>
 							<label for="bl-mkt-email" id="bl-mkt-email-lbl">
-								<input type="email" id="bl-mkt-email" name="bl-mkt-email" />
+								<input type="email" id="bl-mkt-email" name="EMAIL" />
 							</label>
 							<button id="bl-mkt-submit">
 								<!-- Create my list -->
@@ -37,9 +37,20 @@
 							</button>
 						</fieldset>
 					</form>
-					<!-- <div id="bl-mkt-more-wrapper">
-						<a href="###" id="bl-mkt-more">What&rsquo;s this about?</a>
-					</div> -->
+					<div id="bl-mkt-form--submitted">
+						<h3 id="bl-mkt-subscribed">
+							Awesome, you&rsquo;re on the list!
+							<span>
+								Look for an email from <u>Jeff @ betalist</u>.
+							</span>
+						</h3>
+						<h3 id="bl-mkt-confirmed">
+							Thank you for your interest!
+							<span>
+								We&rsquo;ll be in touch soon.
+							</span>
+						</h3>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -93,7 +104,7 @@
 				<a href="javascript:showModal();">See it in action</a> on this site.
 			</p>
 			<div id="bl-mkt-more-cta-wrapper" class="bl-mkt-scroll-more--top">
-				<p>
+				<p id="bl-mkt-more-info">
 					Want to start getting actionable insights &amp; feedback from your customers?
 				</p>
 				<a href="#bl-mkt-main-sub" id="bl-mkt-submit-btn">
@@ -111,7 +122,14 @@
 				}, 0);
 			}
 			document.getElementById('bl-mkt-email').onkeyup = function() {
-				if(!emailHasContent) return;
+				// if input empty, still support initial correct entry
+				if(!emailHasContent) {
+					if(this.value !== '' && validateEmail(this.value)) {
+						handleErrorUI(this, true);
+					} else {
+						return;
+					}
+				}
 				if(!validateEmail(this.value)) {
 					handleErrorUI(this, false);
 					return;
@@ -139,7 +157,7 @@
 				handleErrorUI(document.getElementById('bl-mkt-email'), true);
 				this.classList.add('is-submitted');
 				this.setAttribute('disabled', 'true');
-				// goForth();
+				goForth();
 			}
 			document.getElementById('bl-mkt-form').onsubmit = function(e) {
 				e.preventDefault();
@@ -148,17 +166,17 @@
 					return;
 				}
 				handleErrorUI(document.getElementById('bl-mkt-email'), true);
-				// goForth();
+				goForth();
 			}
 			function handleErrorUI(element, isValid) {
 				setTimeout(function() {
+					console.log(isValid);
 					if(isValid) {
 						var error = element.parentNode.querySelector('.bl-mkt-micro--error'),
 							label = element.parentNode;
-						if(!error) return;
 						emailHasError = false;
 						element.classList.remove('bl-mkt-input--error');
-						error.parentNode.removeChild(error);
+						if(error) error.parentNode.removeChild(error);
 						label.classList.add('bl-mkt-input--good');
 					} else {
 						if(emailHasError) return;
@@ -178,10 +196,58 @@
 				return re.test(email);
 			}
 			function goForth() {
-				setTimeout(function() {
-					window.location.href = 'step3.html' + (document.getElementById('bl-mkt-email').value !== '' ? '?email=' + document.getElementById('bl-mkt-email').value : '');
-				}, 1000);
+				// var blForm = document.getElementById('bl-mkt-form'),
+				// 	blData = new FormData(blForm);
+				// console.log(blData);
+				// var blFormData = {'email_address': document.getElementById('bl-mkt-email').value};
+				// console.log(blFormData);
+				// var request = new XMLHttpRequest();
+				// request.open('POST', 'http://jefff.us5.list-manage.com/subscribe/post-json?u=04a55f946b24b93da6e1e6fbe&amp;id=b8001196ab', true);
+				// request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+				// request.send(blFormData);
+				document.getElementById('bl-mkt-form').submit();
+				// showSuccess();
 			}
+			function showSuccess(isSubscribed) {
+				var blForm = document.getElementById('bl-mkt-form'),
+					blFormWrapper = blForm.parentNode,
+					blSuccess = document.getElementById('bl-mkt-form--submitted');
+
+				blFormWrapper.removeChild(blForm);
+				if(isSubscribed) {
+					document.getElementById('bl-mkt-confirmed').style.display = 'none';
+				} else {
+					document.getElementById('bl-mkt-subscribed').style.display = 'none';
+				}
+				blSuccess.classList.add('is-shown');
+				fadeInSuccess(blSuccess);
+				adjustBottomCta();
+			}
+			function fadeInSuccess(element) {
+				setTimeout(function() {
+					element.classList.add('is-transitioning');
+				}, 251);
+			}
+			function adjustBottomCta() {
+				var blBottomCta = document.getElementById('bl-mkt-submit-btn');
+
+				blBottomCta.parentNode.removeChild(blBottomCta);
+				document.getElementById('bl-mkt-more-info').style.marginBottom = '0';
+				document.getElementById('bl-mkt-more-info').innerHTML = 'Thanks again for your interest! We&rsquo;ll be in touch soon.';
+			}
+			function getUrlParameter(name) {
+				name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+				var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+				var results = regex.exec(location.search);
+				return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+			}
+			if(getUrlParameter('signedUp')) {
+				showSuccess(true);
+			}
+			if(getUrlParameter('confirmedToo')) {
+				showSuccess(false);
+			}
+			// goForth();
 		</script>
 		<script async src="fonts.js"></script>
 		<script async src="../appDemo.js"></script>

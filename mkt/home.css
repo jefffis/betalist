@@ -20,7 +20,7 @@
 	box-sizing: border-box;
 }
 html {
-	color: #000;
+	color: #111;
 	font: normal 100%/1.2 'Helvetica', Arial, sans-serif;
 }
 .fonts-loaded {
@@ -163,6 +163,40 @@ a:active {
 	line-height: 1.2;
 	/*text-shadow: 0 1px 1px #1BA9D0;*/
 }
+
+#bl-mkt-form--submitted {
+	display: none;
+	opacity: 0;
+	max-width: 400px;
+	margin: auto;
+	background: white;
+	padding: 3rem 0;
+	border-radius: 3px;
+	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+	transition: opacity .25s ease-in-out;
+}
+#bl-mkt-form--submitted.is-shown {
+	display: block;
+}
+#bl-mkt-form--submitted.is-transitioning {
+	opacity: 1;
+}
+#bl-mkt-form--submitted h3 {
+	color: #00C41E;
+	font-size: 25px;
+}
+#bl-mkt-form--submitted span {
+	display: block;
+	padding-top: .5rem;
+	color: #111;
+	font-size: 16px;
+	font-weight: normal;
+}
+#bl-mkt-form--submitted u {
+	border-bottom: 1px dotted;
+	text-decoration: none;
+}
+
 #bl-mkt-form {
 	max-width: 500px;
 	margin-left: auto;
@@ -206,7 +240,7 @@ a:active {
 	padding: 1rem 1.25rem;
 	border: 1px solid #1BA9D0;
 	border-radius: 3px;
-	font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, 'Helvetica', Arial, sans-serif;
 	font-size: 18px;
 	-webkit-appearance: none;
 }
@@ -484,6 +518,11 @@ a:active {
 	}
 	#bl-mkt-main-sub {
 		margin-bottom: 3rem;
+	}
+	#bl-mkt-form--submitted {
+		margin: 0 -1.5rem 3rem;
+		padding: 3rem 1.5rem;
+		border-radius: 0;
 	}
 	#bl-mkt-form {
 		margin-bottom: 3rem;
