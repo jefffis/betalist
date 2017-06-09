@@ -14,7 +14,6 @@
 				<a href="###" class="bl-app-nav-link bl-app-nav-link--active">My Betalists</a>
 				<a href="###" class="bl-app-nav-link">My Subscribers</a>
 				<span id="bl-app-nav-account">
-					<!-- <img src="user.jpg" /> -->
 					My Account
 					<div id="bl-app-account">
 						<a href="###" class="bl-app-account-link">My Profile</a>
@@ -46,7 +45,7 @@
 			</ul> -->
 			</div>
 			<h1 class="cf">
-				{businessName} Betalist
+				GitHub betalist
 				<span id="bl-app-settings">
 					Settings
 					<div id="bl-app-settings-actions">
@@ -56,39 +55,126 @@
 					</div>
 				</span>
 			</h1>
-			<table id="bl-app-table" class="bl-app-sample">
+			<table id="bl-app-table" _class="bl-app-sample">
 				<thead>
 					<tr>
-						<th>Email Address</th>
+						<th colspan="2">Email<!--  Address --></th>
 						<th>Tests Done</th>
 						<th>Testing Value</th>
-						<th>Date Subscribed</th>
+						<th>Lifetime Value</th>
+						<th colspan="2">Subscribed</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
+						<td><label><input type="checkbox" /><span></span></label></td>
 						<td>dog_lover71@yahoo.com</td>
 						<td>16</td>
-						<td>High</td>
-						<td>December 15th, 2017</td>
+						<td class="bl-high"><span>High</span></td>
+						<td>$986.50</td>
+						<td>Dec. 15, 2017</td>
+						<td>
+							<button type="button">Edit</button>
+						</td>
 					</tr>
 					<tr>
+						<td><label><input type="checkbox" /><span></span></label></td>
 						<td>johnny.appleseed@gmail.com</td>
-						<td>3</td>
-						<td>Mid</td>
-						<td>June 23rd, 2017</td>
+						<td>7</td>
+						<td class="bl-mid"><span>Average</span></td>
+						<td>$1,286.50</td>
+						<td>Dec. 23, 2015</td>
+						<td>
+							<button type="button">Edit</button>
+						</td>
 					</tr>
 					<tr>
+						<td><label><input type="checkbox" /><span></span></label></td>
 						<td>dog_lover71@yahoo.com</td>
 						<td>16</td>
-						<td>High</td>
-						<td>December 15th, 2017</td>
+						<td class="bl-high"><span>High</span></td>
+						<td>$406.50</td>
+						<td>Dec. 15, 2016</td>
+						<td>
+							<button type="button">Edit</button>
+						</td>
 					</tr>
 					<tr>
+						<td><label><input type="checkbox" /><span></span></label></td>
 						<td>johnny.appleseed@gmail.com</td>
+						<td>8</td>
+						<td class="bl-mid"><span>Average</span></td>
+						<td>$126.50</td>
+						<td>Jun. 23, 2015</td>
+						<td>
+							<button type="button">Edit</button>
+						</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" /><span></span></label></td>
+						<td>tina.food@hotmail.com</td>
 						<td>3</td>
-						<td>Mid</td>
-						<td>June 23rd, 2017</td>
+						<td class="bl-low"><span>Low</span></td>
+						<td>$2,86.50</td>
+						<td>Apr. 13, 2016</td>
+						<td>
+							<button type="button">Edit</button>
+						</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" /><span></span></label></td>
+						<td>dog_lover71@yahoo.com</td>
+						<td>16</td>
+						<td class="bl-high"><span>High</span></td>
+						<td>$986.50</td>
+						<td>Dec. 15, 2017</td>
+						<td>
+							<button type="button">Edit</button>
+						</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" /><span></span></label></td>
+						<td>johnny.appleseed@gmail.com</td>
+						<td>7</td>
+						<td class="bl-mid"><span>Average</span></td>
+						<td>$1,286.50</td>
+						<td>Dec. 23, 2015</td>
+						<td>
+							<button type="button">Edit</button>
+						</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" /><span></span></label></td>
+						<td>dog_lover71@yahoo.com</td>
+						<td>16</td>
+						<td class="bl-high"><span>High</span></td>
+						<td>$406.50</td>
+						<td>Dec. 15, 2016</td>
+						<td>
+							<button type="button">Edit</button>
+						</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" /><span></span></label></td>
+						<td>johnny.appleseed@gmail.com</td>
+						<td>8</td>
+						<td class="bl-mid"><span>Average</span></td>
+						<td>$126.50</td>
+						<td>Jun. 23, 2015</td>
+						<td>
+							<button type="button">Edit</button>
+						</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox" /><span></span></label></td>
+						<td>tina.food@hotmail.com</td>
+						<td>3</td>
+						<td class="bl-low"><span>Low</span></td>
+						<td>$2,86.50</td>
+						<td>Apr. 13, 2016</td>
+						<td>
+							<button type="button">Edit</button>
+						</td>
 					</tr>
 					<!-- <tr>
 						<td colspan="4" id="bl-app-table-micro">
@@ -97,9 +183,9 @@
 					</tr> -->
 				</tbody>
 			</table>
-			<div id="bl-app-table-micro">
+			<!-- <div id="bl-app-table-micro">
 				These records are just examples. When your list is inserted on your site, you will see your subscribers here.	
-			</div>
+			</div> -->
 			<!-- <div id="bl-app-no-subscribers">
 				<p>
 					Since you just created this betalist, there are no subcribers yet. Here&rsquo;s what we suggest:
